@@ -64,7 +64,7 @@ public class DataList extends Activity implements FetchDataListener {
         // dismiss the progress dialog
         if(dialog != null)  dialog.dismiss();
         // show failure message
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();        
+        Toast.makeText(this, msg+"Hi", Toast.LENGTH_LONG).show();        
     }
     
     
