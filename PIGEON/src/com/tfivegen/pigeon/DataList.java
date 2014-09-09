@@ -31,9 +31,10 @@ public class DataList extends Activity implements FetchDataListener {
 	static final int ID_SCREENDIALOG = 1;
 	 
 	ImageView bmImage;
-	TextView TextOut;
+	TextView TextOut,desc; 
 	View screen;
 	Button btnScreenDialog_OK;
+	String job_title,details;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,14 +61,14 @@ public class DataList extends Activity implements FetchDataListener {
         ApplicationAdapter adapter = new ApplicationAdapter(this, data);
         // set the adapter to list
         list.setAdapter(adapter);
-        
         list.setOnItemClickListener(new OnItemClickListener(){
         	public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
         		
+        		job_title=data.get(position).getTitle();
+        		details=data.get(position).getDescript();
         		screen.setDrawingCacheEnabled(true);
         		bmScreen = screen.getDrawingCache();
         		showDialog(ID_SCREENDIALOG);
-        		   
         	    Toast.makeText(getApplicationContext(),
         	      "You've selected this job : " + data.get(position).getTitle() , Toast.LENGTH_LONG)
         	      .show();
@@ -94,6 +95,7 @@ public class DataList extends Activity implements FetchDataListener {
       screenDialog.setContentView(R.layout.dialog);
       bmImage = (ImageView)screenDialog.findViewById(R.id.image);
       TextOut = (TextView)screenDialog.findViewById(R.id.textout);
+      desc = (TextView)screenDialog.findViewById(R.id.description);
       btnScreenDialog_OK = (Button)screenDialog.findViewById(R.id.okdialogbutton);
       btnScreenDialog_OK.setOnClickListener(btnScreenDialog_OKOnClickListener);
      }
@@ -105,8 +107,9 @@ public class DataList extends Activity implements FetchDataListener {
      // TODO Auto-generated method stub
      switch(id){
      case(ID_SCREENDIALOG):
-      dialog.setTitle("Captured Screen");
-      TextOut.setText("Hello");
+      dialog.setTitle("Job Details");
+      TextOut.setText(job_title);
+      desc.setText(details);
       bmImage.setImageBitmap(bmScreen);
       break;
      }

@@ -419,6 +419,7 @@ containing a value of this type.
         public static final int buy_now=0x7f07000f;
         public static final int buy_with_google=0x7f07000e;
         public static final int classic=0x7f070011;
+        public static final int description=0x7f070032;
         public static final int description_text=0x7f070022;
         public static final int dlTxt=0x7f07002e;
         public static final int email=0x7f070025;
@@ -436,7 +437,7 @@ containing a value of this type.
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
-        public static final int okdialogbutton=0x7f070032;
+        public static final int okdialogbutton=0x7f070033;
         public static final int password_1=0x7f070026;
         public static final int password_2=0x7f070024;
         public static final int password_text=0x7f070019;
