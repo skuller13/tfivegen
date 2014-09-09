@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PIGEON</string>
+    <string name="title_activity_starter">PIGEON</string>
+    <string name="findjob">FIND JOB!!</string>
+    <string name="annouce">NEED\nEMPLOYEE</string>
+    <string name="advert">let your life\'s convenience more</string>
+    <string name="title_activity_job__task">Find Job</string>
+    <string name="employpage">Empty Page</string>
+    <string name="title_activity_job_task">Find Job</string>
+    <string name="title_activity_my_location">My Location</string>
+    <string name="title_activity_data_list">Job list</string>
+    <string name="title_activity_employ_task">Employee</string>
+    <string name="title_activity_post">Post</string>
+    <string name="title_activity_register">Sign Up</string>
+    <string name="title_activity_list">List</string>
+    <string name="icon">Hello world!</string>
+
+</resources>
