@@ -29,12 +29,9 @@ public class DataList extends Activity implements FetchDataListener {
         initView();
 	}
 	
-	
-	
 	private void initView() {
         // show progress dialog
         dialog = ProgressDialog.show(this, "", "Loading...");
-        
         String url = "http://pigeon.meximas.com/pigeon/read.php";
         FetchDataTask task = new FetchDataTask(this);
         task.execute(url);
