@@ -25,7 +25,6 @@ public class DataList extends Activity implements FetchDataListener {
 		setContentView(R.layout.activity_data_list);
 		
         list=(ListView)findViewById(R.id.list);
-        
         initView();
 	}
 	

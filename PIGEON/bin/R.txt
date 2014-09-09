@@ -118,7 +118,9 @@ int id grayscale 0x7f070012
 int id holo_dark 0x7f070005
 int id holo_light 0x7f070006
 int id hybrid 0x7f070004
+int id image 0x7f070030
 int id job_name_text 0x7f07001e
+int id layout_root 0x7f07002e
 int id list 0x7f070014
 int id login_button 0x7f07001a
 int id map 0x7f07001d
@@ -126,6 +128,7 @@ int id match_parent 0x7f07000c
 int id monochrome 0x7f070013
 int id none 0x7f070000
 int id normal 0x7f070001
+int id okdialogbutton 0x7f070031
 int id password_1 0x7f070025
 int id password_2 0x7f070023
 int id password_text 0x7f070018
@@ -142,6 +145,7 @@ int id textView1 0x7f070029
 int id textView2 0x7f070017
 int id textView3 0x7f070020
 int id textView4 0x7f070027
+int id textout 0x7f07002f
 int id textview_1 0x7f070016
 int id titleTxt 0x7f07002c
 int id username 0x7f070026
@@ -156,6 +160,7 @@ int layout activity_post 0x7f030004
 int layout activity_register 0x7f030005
 int layout activity_starter 0x7f030006
 int layout app_custom_list 0x7f030007
+int layout dialog 0x7f030008
 int string advert 0x7f06001e
 int string annouce 0x7f06001d
 int string app_name 0x7f06001a

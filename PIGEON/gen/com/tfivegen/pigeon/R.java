@@ -426,7 +426,9 @@ containing a value of this type.
         public static final int holo_dark=0x7f070005;
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
+        public static final int image=0x7f070030;
         public static final int job_name_text=0x7f07001e;
+        public static final int layout_root=0x7f07002e;
         public static final int list=0x7f070014;
         public static final int login_button=0x7f07001a;
         public static final int map=0x7f07001d;
@@ -434,6 +436,7 @@ containing a value of this type.
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
+        public static final int okdialogbutton=0x7f070031;
         public static final int password_1=0x7f070025;
         public static final int password_2=0x7f070023;
         public static final int password_text=0x7f070018;
@@ -450,6 +453,7 @@ containing a value of this type.
         public static final int textView2=0x7f070017;
         public static final int textView3=0x7f070020;
         public static final int textView4=0x7f070027;
+        public static final int textout=0x7f07002f;
         public static final int textview_1=0x7f070016;
         public static final int titleTxt=0x7f07002c;
         public static final int username=0x7f070026;
@@ -468,6 +472,7 @@ containing a value of this type.
         public static final int activity_register=0x7f030005;
         public static final int activity_starter=0x7f030006;
         public static final int app_custom_list=0x7f030007;
+        public static final int dialog=0x7f030008;
     }
     public static final class string {
         public static final int advert=0x7f06001e;
