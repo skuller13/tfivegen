@@ -107,7 +107,7 @@ public class DataList extends Activity implements FetchDataListener {
      // TODO Auto-generated method stub
      switch(id){
      case(ID_SCREENDIALOG):
-      dialog.setTitle("Job Details");
+      dialog.setTitle("Job Details 1");
       TextOut.setText(job_title);
       desc.setText(details);
       bmImage.setImageBitmap(bmScreen);
