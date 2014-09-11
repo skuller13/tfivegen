@@ -1563,14 +1563,14 @@ containing a value of this type.
         public static final int textView3=0x7f08005b;
         public static final int textView4=0x7f080062;
         public static final int textout=0x7f08006a;
-        public static final int textview_1=0x7f080051;
+        public static final int textview_1=0x7f080050;
         public static final int title=0x7f08003d;
         public static final int titleTxt=0x7f080067;
         public static final int top_action_bar=0x7f080032;
         public static final int up=0x7f080033;
         public static final int useLogo=0x7f080016;
         public static final int username=0x7f080061;
-        public static final int username_register=0x7f080050;
+        public static final int username_register=0x7f080051;
         public static final int withText=0x7f08001f;
         public static final int wrap_content=0x7f08000d;
     }

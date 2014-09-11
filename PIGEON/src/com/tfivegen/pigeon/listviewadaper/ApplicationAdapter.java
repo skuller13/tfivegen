@@ -4,6 +4,8 @@ import java.text.NumberFormat;
 import java.util.List;
 
 import com.tfivegen.pigeon.R;
+import com.tfivegen.pigeon.R.id;
+import com.tfivegen.pigeon.R.layout;
 
 import android.content.Context;
 import android.content.res.Resources;

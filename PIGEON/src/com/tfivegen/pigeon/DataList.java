@@ -21,6 +21,7 @@ import com.tfivegen.pigeon.listviewadaper.ApplicationAdapter;
 import com.tfivegen.pigeon.listviewadaper.FetchDataListener;
 import com.tfivegen.pigeon.listviewadaper.FetchDataTask;
 
+
 public class DataList extends Activity implements FetchDataListener {
 	private ProgressDialog dialog;
 	ListView list;

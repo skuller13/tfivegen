@@ -434,14 +434,14 @@ int id textView2 0x7f080052
 int id textView3 0x7f08005b
 int id textView4 0x7f080062
 int id textout 0x7f08006a
-int id textview_1 0x7f080051
+int id textview_1 0x7f080050
 int id title 0x7f08003d
 int id titleTxt 0x7f080067
 int id top_action_bar 0x7f080032
 int id up 0x7f080033
 int id useLogo 0x7f080016
 int id username 0x7f080061
-int id username_register 0x7f080050
+int id username_register 0x7f080051
 int id withText 0x7f08001f
 int id wrap_content 0x7f08000d
 int integer abc_max_action_buttons 0x7f090001

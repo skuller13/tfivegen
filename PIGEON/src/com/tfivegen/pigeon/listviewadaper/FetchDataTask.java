@@ -16,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.tfivegen.pigeon.data_center;
+
 import android.os.AsyncTask;
 
 public class FetchDataTask extends AsyncTask<String, Void, String>{
@@ -90,7 +92,7 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
             if(listener != null) listener.onFetchComplete(apps);
         } catch (JSONException e) {
             msg = "Invalid response";
-            if(listener != null) listener.onFetchFailure(msg);
+            if(listener != null) listener.onFetchFailure(msg + "\n" + e.toString());
             return;
         }        
     }

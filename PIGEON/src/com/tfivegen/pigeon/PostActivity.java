@@ -19,6 +19,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -92,6 +93,7 @@ public class PostActivity extends Activity {
 					pairs.add(new BasicNameValuePair("longitude","0.000000"));
 					pairs.add(new BasicNameValuePair("username","root"));
 					pairs.add(new BasicNameValuePair("password","1234"));
+					pairs.add(new BasicNameValuePair("employer_id",data_center.user_id));
 					post.setEntity(new UrlEncodedFormEntity(pairs));
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());
@@ -125,7 +127,7 @@ public class PostActivity extends Activity {
 		    	progress.dismiss();
 		    	if(result.equals("done"))
 		    	{
-		    		Intent Post_page = new Intent(PostActivity.this, EmployTask.class);
+		    		Intent Post_page = new Intent(PostActivity.this, LoginActivity.class);
 		            startActivity(Post_page);
 		    	}
 		    	else

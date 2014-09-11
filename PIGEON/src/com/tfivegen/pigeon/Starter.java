@@ -1,5 +1,6 @@
 package com.tfivegen.pigeon;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ public class Starter extends Activity {
 	}
 	
 	public void Employee(View view){
-		Intent i=new Intent(this,EmployTask.class); //ตั้งลิ้งหน้าใหม่
+		Intent i=new Intent(this,LoginActivity.class); //ตั้งลิ้งหน้าใหม่
 		startActivity(i); //เปิดหน้าใหม่
 	}
 }
