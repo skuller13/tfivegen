@@ -13,19 +13,18 @@
 	android:layout_height="wrap_content"
 />
 
-<ImageView
-    android:id="@+id/image"
-    android:layout_width="300px"
-    android:layout_height="300px"
-    android:nextFocusRight="@id/image" />
-
 <TextView
     android:id="@+id/description"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:nextFocusLeft="@id/image"
     android:text="TextView"
     android:textAlignment="center" />
+
+<ImageView
+    android:id="@+id/imagexy"
+    android:layout_width="173dp"
+    android:layout_height="wrap_content"
+    />
 
 <Button
 	android:id="@+id/okdialogbutton"
