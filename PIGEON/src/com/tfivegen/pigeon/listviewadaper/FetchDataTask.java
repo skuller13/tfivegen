@@ -77,6 +77,7 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
                 JSONObject json = aJson.getJSONObject(i);
                 Application app = new Application();
                 app.setTitle(json.getString("job_name"));
+                app.setDescript(json.getString("description"));
                 app.setPrice(Integer.parseInt(json.getString("price")));
                 app.setEmpid(Integer.parseInt(json.getString("employer_id")));  
                 //app.setIcon(json.getString("icon"));

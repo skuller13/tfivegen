@@ -4,6 +4,7 @@ public class Application {
     private String jobname;
     private int price;
     private int empid;
+    private String desc;
     //private String icon;
     
     public String getTitle() {
@@ -23,6 +24,14 @@ public class Application {
     }
     public void setEmpid(int empid) {
         this.empid = empid;
+    }
+    
+    public String getDescript() {
+    	return desc;
+    }
+    
+    public void setDescript(String descript) {
+    	this.desc=descript;
     }
     /*public String getIcon() {
         return icon;
