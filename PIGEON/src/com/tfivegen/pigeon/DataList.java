@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,9 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.InputStream;
-
-import java.net.URL;
 import java.util.List;
 
 import com.tfivegen.pigeon.listviewadaper.Application;
@@ -31,15 +27,16 @@ public class DataList extends Activity implements FetchDataListener {
 	 
 	Dialog screenDialog;
 	static final int ID_SCREENDIALOG = 1;
-
-	String image_url = "http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
-	ImageView jimage;
-	Bitmap bitmap;
-	
 	 
 	TextView TextOut,desc; 
+	View screen;
 	Button btnScreenDialog_OK;
 	String job_title,details;
+	
+    int loader = R.drawable.loader;
+    public ImageView image;
+    public String image_url = "http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
+    public ImageLoader imgLoader;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,46 +63,44 @@ public class DataList extends Activity implements FetchDataListener {
         // set the adapter to list
         list.setAdapter(adapter);
         list.setOnItemClickListener(new OnItemClickListener(){
-			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-        		
+        	public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
         		job_title=data.get(position).getTitle();
         		details=data.get(position).getDescript();
         		showDialog(ID_SCREENDIALOG);
         	  }
         	});
     }
-
-    @Override
-    public void onFetchFailure(String msg) {
-        // dismiss the progress dialog
-        if(dialog != null)  dialog.dismiss();
-        // show failure message
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();        
-    }
     
     @Override
     protected Dialog onCreateDialog(int id) {
-    	switch(id){
-    	case(ID_SCREENDIALOG):
-    		screenDialog = null;
-    		jimage = (ImageView)findViewById(R.id.imagexy);
-    		screenDialog.setContentView(R.layout.dialog);
-    		TextOut = (TextView)screenDialog.findViewById(R.id.textout);
-    		desc = (TextView)screenDialog.findViewById(R.id.description);
-    		btnScreenDialog_OK = (Button)screenDialog.findViewById(R.id.okdialogbutton);
-    		btnScreenDialog_OK.setOnClickListener(btnScreenDialog_OKOnClickListener);
-    		screenDialog = new Dialog(this);
+     // TODO Auto-generated method stub
+     
+     screenDialog = null;
+     switch(id){
+     case(ID_SCREENDIALOG):
+      screenDialog = new Dialog(this);
+      screenDialog.setContentView(R.layout.dialog);
+      TextOut = (TextView)screenDialog.findViewById(R.id.textout);
+      desc = (TextView)screenDialog.findViewById(R.id.description);
+      btnScreenDialog_OK = (Button)screenDialog.findViewById(R.id.okdialogbutton);
+      btnScreenDialog_OK.setOnClickListener(btnScreenDialog_OKOnClickListener);
+      image = (ImageView)screenDialog.findViewById(R.id.imagexy);
+      imgLoader = new ImageLoader(screenDialog.getContext());
+      imgLoader.DisplayImage(image_url, loader, image);
+      
      }
      return screenDialog;
     }
     
     @Override
     protected void onPrepareDialog(int id, Dialog dialog) {
+     // TODO Auto-generated method stub
      switch(id){
      case(ID_SCREENDIALOG):
-      	dialog.setTitle("Job Details");
-      	TextOut.setText(job_title);
-      	desc.setText(details);
+     	dialog.setTitle("Job Details");
+     	TextOut.setText(job_title);
+     	desc.setText(details);
+      break;
      }
     }
      
@@ -114,7 +109,15 @@ public class DataList extends Activity implements FetchDataListener {
      
      @Override
      public void onClick(View arg0) {
+      // TODO Auto-generated method stub
       screenDialog.dismiss();
      }};
      
+     @Override
+     public void onFetchFailure(String msg) {
+         // dismiss the progress dialog
+         if(dialog != null)  dialog.dismiss();
+         // show failure message
+         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();        
+     }
 }

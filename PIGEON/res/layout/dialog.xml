@@ -7,24 +7,24 @@
 	android:paddingLeft="10dip"
 	android:paddingRight="10dip"
 >
+
 <TextView
-	android:id="@+id/textout"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-/>
+    android:id="@+id/textout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:text="Name" />
+
+<ImageView
+    android:id="@+id/imagexy"
+    android:layout_width="173dp"
+    android:layout_height="wrap_content" />
 
 <TextView
     android:id="@+id/description"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="TextView"
-    android:textAlignment="center" />
-
-<ImageView
-    android:id="@+id/imagexy"
-    android:layout_width="173dp"
-    android:layout_height="wrap_content"
-    />
+    android:textAlignment="center"
+    android:text="description" />
 
 <Button
 	android:id="@+id/okdialogbutton"

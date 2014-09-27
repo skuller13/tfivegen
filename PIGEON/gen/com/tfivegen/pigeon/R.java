@@ -398,15 +398,16 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f020020;
         public static final int ic_plusone_standard_off_client=0x7f020021;
         public static final int ic_plusone_tall_off_client=0x7f020022;
-        public static final int meno_rows1=0x7f020023;
-        public static final int menu_rows=0x7f020024;
-        public static final int menu_rows2=0x7f020025;
-        public static final int pigeon_drw=0x7f020026;
-        public static final int powered_by_google_dark=0x7f020027;
-        public static final int powered_by_google_light=0x7f020028;
-        public static final int tab_find=0x7f020029;
-        public static final int tab_list=0x7f02002a;
-        public static final int tabs=0x7f02002b;
+        public static final int loader=0x7f020023;
+        public static final int meno_rows1=0x7f020024;
+        public static final int menu_rows=0x7f020025;
+        public static final int menu_rows2=0x7f020026;
+        public static final int pigeon_drw=0x7f020027;
+        public static final int powered_by_google_dark=0x7f020028;
+        public static final int powered_by_google_light=0x7f020029;
+        public static final int tab_find=0x7f02002a;
+        public static final int tab_list=0x7f02002b;
+        public static final int tabs=0x7f02002c;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f07001c;
@@ -419,7 +420,7 @@ containing a value of this type.
         public static final int buy_now=0x7f07000f;
         public static final int buy_with_google=0x7f07000e;
         public static final int classic=0x7f070011;
-        public static final int description=0x7f070030;
+        public static final int description=0x7f070031;
         public static final int description_text=0x7f070021;
         public static final int dlTxt=0x7f07002d;
         public static final int email=0x7f070024;
@@ -427,7 +428,7 @@ containing a value of this type.
         public static final int holo_dark=0x7f070005;
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
-        public static final int imagexy=0x7f070031;
+        public static final int imagexy=0x7f070030;
         public static final int job_name_text=0x7f07001e;
         public static final int layout_root=0x7f07002e;
         public static final int list=0x7f070014;
