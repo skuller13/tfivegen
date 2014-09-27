@@ -51,7 +51,7 @@
             android:label="@string/title_activity_data_list" >
         </activity>
         <activity
-            android:name="com.tfivegen.pigeon.LoginActivity"
+            android:name=".EmployTask"
             android:label="@string/title_activity_employ_task" >
         </activity>
         <activity

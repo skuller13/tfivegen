@@ -16,8 +16,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.tfivegen.pigeon.data_center;
-
 import android.os.AsyncTask;
 
 public class FetchDataTask extends AsyncTask<String, Void, String>{
@@ -79,7 +77,6 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
                 JSONObject json = aJson.getJSONObject(i);
                 Application app = new Application();
                 app.setTitle(json.getString("job_name"));
-                app.setDescript(json.getString("description"));
                 app.setPrice(Integer.parseInt(json.getString("price")));
                 app.setEmpid(Integer.parseInt(json.getString("employer_id")));  
                 //app.setIcon(json.getString("icon"));
@@ -92,7 +89,7 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
             if(listener != null) listener.onFetchComplete(apps);
         } catch (JSONException e) {
             msg = "Invalid response";
-            if(listener != null) listener.onFetchFailure(msg + "\n" + e.toString());
+            if(listener != null) listener.onFetchFailure(msg);
             return;
         }        
     }

@@ -58,11 +58,6 @@ public class ApplicationAdapter extends ArrayAdapter<Application>{
                 NumberFormat nf = NumberFormat.getNumberInstance();
                 dlText.setText(nf.format(app.getPrice())+" ฿");            
             }
-            
-           
-                for(int i=1; i<=5; i++) {
-                    ImageView iv = new ImageView(getContext());
-                }
         }
         
         return v;

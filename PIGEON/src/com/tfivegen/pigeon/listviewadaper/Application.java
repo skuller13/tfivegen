@@ -1,7 +1,7 @@
 package com.tfivegen.pigeon.listviewadaper;
 
 public class Application {
-    private String jobname,description;
+    private String jobname;
     private int price;
     private int empid;
     //private String icon;
@@ -11,12 +11,6 @@ public class Application {
     }
     public void setTitle(String jobname) {
         this.jobname = jobname;
-    }
-    public String getDescript() {
-        return description;
-    }
-    public void setDescript(String text) {
-        this.description = text;
     }
     public long getPrice() {
         return price;

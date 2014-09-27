@@ -4,8 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:gravity="bottom|top"
-    tools:context="${packageName}.${activityClass}"
-    android:id="@+id/screen" >
+    tools:context="${packageName}.${activityClass}" >
 
     <ListView
         android:id="@+id/list"
