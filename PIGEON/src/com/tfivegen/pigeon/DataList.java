@@ -3,7 +3,7 @@ package com.tfivegen.pigeon;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.graphics.Bitmap;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.tfivegen.pigeon.listviewadaper.Application;
 import com.tfivegen.pigeon.listviewadaper.ApplicationAdapter;
 import com.tfivegen.pigeon.listviewadaper.FetchDataListener;
@@ -32,11 +35,10 @@ public class DataList extends Activity implements FetchDataListener {
 	View screen;
 	Button btnScreenDialog_OK;
 	String job_title,details;
+	int loader=R.drawable.loader;
 	
-    int loader = R.drawable.loader;
     public ImageView image;
     public String image_url = "http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
-    public ImageLoader imgLoader;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +86,9 @@ public class DataList extends Activity implements FetchDataListener {
       desc = (TextView)screenDialog.findViewById(R.id.description);
       btnScreenDialog_OK = (Button)screenDialog.findViewById(R.id.okdialogbutton);
       btnScreenDialog_OK.setOnClickListener(btnScreenDialog_OKOnClickListener);
-      image = (ImageView)screenDialog.findViewById(R.id.imagexy);
-      imgLoader = new ImageLoader(screenDialog.getContext());
-      imgLoader.DisplayImage(image_url, loader, image);
+      image= new ImageView(DataList.this);
+      image=(ImageView)screenDialog.findViewById(R.id.imagexy);
+      ImageLoading();
       
      }
      return screenDialog;
@@ -97,6 +99,8 @@ public class DataList extends Activity implements FetchDataListener {
      // TODO Auto-generated method stub
      switch(id){
      case(ID_SCREENDIALOG):
+    	ImageLoader imageLoader=ImageLoader.getInstance();
+		imageLoader.displayImage(image_url, image);
      	dialog.setTitle("Job Details");
      	TextOut.setText(job_title);
      	desc.setText(details);
@@ -118,6 +122,35 @@ public class DataList extends Activity implements FetchDataListener {
          // dismiss the progress dialog
          if(dialog != null)  dialog.dismiss();
          // show failure message
-         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();        
+         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();    
+     }
+     
+     public void ImageLoading(){
+    	 DisplayImageOptions.Builder optionBuilder = new DisplayImageOptions.Builder();
+ 		// จากนั้นก็เซ็ตออปชันต่างๆ ตามรายการข้างล่างนี้
+ 		// ตั้งว่าจะโชว์รูปอะไร เมื่อ ImageView ไม่มีภาพ
+ 		optionBuilder.showImageForEmptyUri(R.drawable.ic_launcher);
+ 		// จะให้โชว์รูปอะไร ถ้าโหลดรูปภาพมาแสดงไม่ได้
+       	optionBuilder.showImageOnFail(R.drawable.ic_launcher);
+ 	        // ตั้งให้ cache รูปลง memory
+ 	        optionBuilder.cacheInMemory(true);
+ 	        // ตั้งให้ cache รูปลงเครื่อง
+ 	        optionBuilder.cacheOnDisk(true);
+ 		// จากนั้นก็ build ค่าทั้งหมด ใส่ตัวแปร options 
+ 		DisplayImageOptions options = optionBuilder.build();
+ 		
+ 		
+ 		ImageLoaderConfiguration.Builder loaderBuilder = 
+ 				new ImageLoaderConfiguration.Builder(getApplicationContext());
+ 		
+ 		// ตั้งค่า option โดยใช้ options ที่ได้ตั้งค่าไว้ด้านบน
+ 		loaderBuilder.defaultDisplayImageOptions(options);
+ 		// ตั้งค่าให้ cache รูปมีขนาด 240x240 
+ 		loaderBuilder.diskCacheExtraOptions(240, 240, null);
+ 		
+ 		ImageLoaderConfiguration config = loaderBuilder.build();
+ 		
+ 		// ตั้งค่าออปชันเริ่มต้นที่ได้ประกาศไว้ทั้งหมด ให้กับ ImageLoader
+ 		ImageLoader.getInstance().init(config);
      }
 }
