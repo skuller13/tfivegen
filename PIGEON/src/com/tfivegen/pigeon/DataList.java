@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,7 +34,7 @@ public class DataList extends Activity implements FetchDataListener {
 	 
 	TextView TextOut,desc; 
 	View screen;
-	Button btnScreenDialog_OK;
+	Button btnScreenDialog_OK,viewjob;
 	String job_title,details;
 	int loader=R.drawable.loader;
 	
@@ -86,6 +87,8 @@ public class DataList extends Activity implements FetchDataListener {
       desc = (TextView)screenDialog.findViewById(R.id.description);
       btnScreenDialog_OK = (Button)screenDialog.findViewById(R.id.okdialogbutton);
       btnScreenDialog_OK.setOnClickListener(btnScreenDialog_OKOnClickListener);
+      viewjob = (Button)screenDialog.findViewById(R.id.gotopage);
+      viewjob.setOnClickListener(viewjobdetail);
       image= new ImageView(DataList.this);
       image=(ImageView)screenDialog.findViewById(R.id.imagexy);
       ImageLoading();
@@ -117,12 +120,21 @@ public class DataList extends Activity implements FetchDataListener {
       screenDialog.dismiss();
      }};
      
+     private Button.OnClickListener viewjobdetail
+     = new Button.OnClickListener(){
+     
+     @Override
+     public void onClick(View arg0) {
+      // TODO Auto-generated method stub
+      screenDialog.dismiss();
+      Intent in=new Intent(getApplicationContext(),Jobdetail.class); //ตั้งลิ้งหน้าใหม่
+		startActivity(in); //เปิดหน้าใหม่
+     }};
+     
      @Override
      public void onFetchFailure(String msg) {
-         // dismiss the progress dialog
-         if(dialog != null)  dialog.dismiss();
-         // show failure message
-         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();    
+         if(dialog != null)  dialog.dismiss();// dismiss the progress dialog
+         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();  // show failure message
      }
      
      public void ImageLoading(){

@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/jname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="20dp"
+        android:text="Job name" />
+
+    <TextView
+        android:id="@+id/jprice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jname"
+        android:layout_below="@+id/jname"
+        android:text="Job price" />
+
+    <TextView
+        android:id="@+id/jview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/jprice"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="53dp"
+        android:text="View:" />
+
+    <Button
+        android:id="@+id/jloc"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/jview"
+        android:layout_alignBottom="@+id/jview"
+        android:layout_toLeftOf="@+id/jview"
+        android:text="Locate" />
+
+    <TextView
+        android:id="@+id/jdesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jprice"
+        android:layout_below="@+id/jdeschead"
+        android:background="#E6E6E6"
+        android:text="Job Description" />
+
+    <TextView
+        android:id="@+id/jdeschead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jdesc"
+        android:layout_below="@+id/jprice"
+        android:layout_marginTop="14dp"
+        android:text="Description" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jdesc"
+        android:layout_below="@+id/jdesc"
+        android:layout_marginTop="33dp"
+        android:src="@drawable/loader" />
+
+    <TextView
+        android:id="@+id/jphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Phone number: 0913067637" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Email" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:text="SMS" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/jdesc"
+        android:layout_below="@+id/jphone"
+        android:layout_marginTop="23dp"
+        android:text="Phone" />
+
+</RelativeLayout>

@@ -66,6 +66,10 @@
             android:name=".List"
             android:label="@string/title_activity_list" >
         </activity>
+        <activity
+            android:name=".Jobdetail"
+            android:label="@string/title_activity_jobdetail" >
+        </activity>
     </application>
 
     <permission
