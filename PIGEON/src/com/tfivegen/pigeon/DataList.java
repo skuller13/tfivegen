@@ -37,6 +37,7 @@ public class DataList extends Activity implements FetchDataListener {
 	Button btnScreenDialog_OK,viewjob;
 	String job_title,details;
 	int loader=R.drawable.loader;
+	Application databundle;
 	
     public ImageView image;
     public String image_url = "http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
@@ -69,6 +70,7 @@ public class DataList extends Activity implements FetchDataListener {
         	public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
         		job_title=data.get(position).getTitle();
         		details=data.get(position).getDescript();
+        		databundle=data.get(position);
         		showDialog(ID_SCREENDIALOG);
         	  }
         	});
@@ -128,7 +130,12 @@ public class DataList extends Activity implements FetchDataListener {
       // TODO Auto-generated method stub
       screenDialog.dismiss();
       Intent in=new Intent(getApplicationContext(),Jobdetail.class); //ตั้งลิ้งหน้าใหม่
-		startActivity(in); //เปิดหน้าใหม่
+      Bundle extras = new Bundle();
+      extras.putString("name", databundle.getTitle());
+      extras.putString("descript", databundle.getDescript());
+      extras.putLong("price", databundle.getPrice());
+      in.putExtras(extras);
+      startActivity(in); //เปิดหน้าใหม่
      }};
      
      @Override

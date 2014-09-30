@@ -57,10 +57,10 @@
         android:layout_alignLeft="@+id/jdesc"
         android:layout_below="@+id/jprice"
         android:layout_marginTop="14dp"
-        android:text="Description" />
+        android:text="Description:" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/job_im"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/jdesc"
@@ -79,29 +79,30 @@
         android:text="Phone number: 0913067637" />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_toRightOf="@+id/button1"
-        android:text="Email" />
-
-    <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/job_im"
+        android:layout_marginTop="28dp"
         android:text="SMS" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_toRightOf="@+id/button3"
+        android:text="Email" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/jdesc"
-        android:layout_below="@+id/jphone"
-        android:layout_marginTop="23dp"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
         android:text="Phone" />
 
 </RelativeLayout>
