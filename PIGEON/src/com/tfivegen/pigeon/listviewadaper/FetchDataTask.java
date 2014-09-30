@@ -80,6 +80,7 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
                 app.setDescript(json.getString("description"));
                 app.setPrice(Integer.parseInt(json.getString("price")));
                 app.setEmpid(Integer.parseInt(json.getString("employer_id")));  
+                app.SetView(Integer.parseInt(json.getString("view")));
                 //app.setIcon(json.getString("icon"));
                 
                 // add the app to apps list

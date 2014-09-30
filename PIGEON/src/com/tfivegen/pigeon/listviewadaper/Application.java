@@ -5,6 +5,7 @@ public class Application {
     private int price;
     private int empid;
     private String desc;
+    private int view;
     //private String icon;
     
     public String getTitle() {
@@ -32,6 +33,14 @@ public class Application {
     
     public void setDescript(String descript) {
     	this.desc=descript;
+    }
+    
+    public int getView() {
+    	return view;
+    }
+    
+    public void SetView(int viewer) {
+    	this.view=viewer;
     }
     /*public String getIcon() {
         return icon;

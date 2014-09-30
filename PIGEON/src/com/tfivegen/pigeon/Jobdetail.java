@@ -41,6 +41,7 @@ public class Jobdetail extends Activity {
 		jname.setText("Title: "+ext.getString("name"));
 		jdesc.setText(ext.getString("descript"));
 		jprice.setText("Price: "+String.valueOf(ext.getLong("price")));
+		jview.setText("View: "+String.valueOf(ext.getInt("view")));
 		ImageLoader imageLoader=ImageLoader.getInstance();
 		imageLoader.displayImage(image_url, image);
 	}

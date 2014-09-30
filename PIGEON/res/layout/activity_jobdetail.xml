@@ -68,25 +68,6 @@
         android:layout_marginTop="33dp"
         android:src="@drawable/loader" />
 
-    <TextView
-        android:id="@+id/jphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="Phone number: 0913067637" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/job_im"
-        android:layout_marginTop="28dp"
-        android:text="SMS" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -104,5 +85,23 @@
         android:layout_alignBottom="@+id/button2"
         android:layout_toRightOf="@+id/button2"
         android:text="Phone" />
+
+    <TextView
+        android:id="@+id/jphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignLeft="@+id/job_im"
+        android:gravity="center"
+        android:text="Phone number: 0913067637" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jphone"
+        android:layout_below="@+id/job_im"
+        android:layout_marginTop="39dp"
+        android:text="SMS" />
 
 </RelativeLayout>

@@ -134,6 +134,7 @@ public class DataList extends Activity implements FetchDataListener {
       extras.putString("name", databundle.getTitle());
       extras.putString("descript", databundle.getDescript());
       extras.putLong("price", databundle.getPrice());
+      extras.putInt("view", databundle.getView());
       in.putExtras(extras);
       startActivity(in); //เปิดหน้าใหม่
      }};
