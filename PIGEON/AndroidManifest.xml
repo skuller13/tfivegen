@@ -70,6 +70,10 @@
             android:name=".Jobdetail"
             android:label="@string/title_activity_jobdetail" >
         </activity>
+        <activity
+            android:name=".User_profile"
+            android:label="@string/title_activity_user_profile" >
+        </activity>
     </application>
 
     <permission

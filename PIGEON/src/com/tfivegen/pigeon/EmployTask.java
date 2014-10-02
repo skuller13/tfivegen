@@ -41,7 +41,7 @@ public class EmployTask extends Activity {
 				if(check_login.id != null)
 				{
 					Toast.makeText(getApplicationContext(),"Auto Login success!", Toast.LENGTH_LONG).show();	
-					Intent Post_page = new Intent(EmployTask.this, PostActivity.class);
+					Intent Post_page = new Intent(EmployTask.this, User_profile.class);
 		            startActivity(Post_page);
 				}
 	}
@@ -157,8 +157,9 @@ public class EmployTask extends Activity {
 					if(check_login.error_status.equals("0"))
 					{
 						Toast.makeText(getApplicationContext(),"Login success!", Toast.LENGTH_LONG).show();	
-						Intent Post_page = new Intent(EmployTask.this, PostActivity.class);
+						Intent Post_page = new Intent(EmployTask.this, User_profile.class);
 			            startActivity(Post_page);
+			            finish();
 					}
 					else
 					{

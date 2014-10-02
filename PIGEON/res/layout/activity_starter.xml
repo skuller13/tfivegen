@@ -5,7 +5,7 @@
     tools:context="${relativePackage}.${activityClass}" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_sell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
@@ -18,12 +18,12 @@
         android:textSize="35sp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_mypost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/button1"
+        android:layout_alignLeft="@+id/btn_sell"
+        android:layout_alignRight="@+id/btn_sell"
+        android:layout_below="@+id/btn_sell"
         android:layout_marginTop="36dp"
         android:background="#F5D0A9"
         android:drawableLeft="@drawable/annouce"

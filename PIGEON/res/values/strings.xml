@@ -17,5 +17,8 @@
     <string name="title_activity_list">List</string>
     <string name="def_name">Job name</string>
     <string name="title_activity_jobdetail">Job Details</string>
+    <string name="title_activity_user_profile">User_profile</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

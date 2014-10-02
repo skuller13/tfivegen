@@ -69,7 +69,7 @@
         android:src="@drawable/loader" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_mypost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button3"
@@ -78,19 +78,19 @@
         android:text="Email" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_sell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button2"
-        android:layout_alignBottom="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
+        android:layout_alignBaseline="@+id/btn_mypost"
+        android:layout_alignBottom="@+id/btn_mypost"
+        android:layout_toRightOf="@+id/btn_mypost"
         android:text="Phone" />
 
     <TextView
         android:id="@+id/jphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/btn_mypost"
         android:layout_alignLeft="@+id/job_im"
         android:gravity="center"
         android:text="Phone number: 0913067637" />

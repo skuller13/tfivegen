@@ -96,13 +96,16 @@ public class PostActivity extends Activity {
 					HttpPost post = new HttpPost("http://pigeon.meximas.com/pigeon/insert_post.php");
 					
 					List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+					pairs.add(new BasicNameValuePair("user_id", check_login.id));
+					pairs.add(new BasicNameValuePair("username", check_login.username));
+					pairs.add(new BasicNameValuePair("password", check_login.password));
+					
 					pairs.add(new BasicNameValuePair("job_name", job_name.getText().toString()));
 					pairs.add(new BasicNameValuePair("price", price.getText().toString()));
 					pairs.add(new BasicNameValuePair("description", description.getText().toString()));
 					pairs.add(new BasicNameValuePair("latitude","0.000000"));
 					pairs.add(new BasicNameValuePair("longitude","0.000000"));
-					pairs.add(new BasicNameValuePair("username","root"));
-					pairs.add(new BasicNameValuePair("password","1234"));
+
 					post.setEntity(new UrlEncodedFormEntity(pairs));
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());

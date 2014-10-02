@@ -1,10 +1,5 @@
 package com.tfivegen.pigeon;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +13,17 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class RegisterActivity extends Activity {
@@ -99,14 +99,7 @@ public class RegisterActivity extends Activity {
 		    dlgAlert.setCancelable(true);
 		    dlgAlert.create().show();	
 	}
-	public void exit()
-	{	
-		mbox(task.result);
-		if(result_of_activity == true)
-		{
-			this.finish();
-		}
-	}
+
 	public Boolean result_of_activity()
 	{
 		return result_of_activity = true;
@@ -158,15 +151,28 @@ public class RegisterActivity extends Activity {
 		   
 		    protected void onPostExecute(Integer n)
 		    {
-		    	if(result.equals("done") == true )
+		    	try 
 		    	{
-		    		result_of_activity = true;
-		    	}
-		    	else
+					JSONObject c = new JSONObject(result);
+					String error_message = c.getString("error_message");
+					if(error_message.equals("0"))
+					{
+						Toast.makeText(getApplicationContext(),"Success... you were member.", Toast.LENGTH_LONG).show();	
+						finish();
+					}
+					else
+					{
+						Toast.makeText(getApplicationContext(),error_message, Toast.LENGTH_LONG).show();	
+					}
+					
+		    	} 
+		    	catch (JSONException e) 
 		    	{
-		    		result_of_activity = false;
-		    	}		    	
-		    	exit();
+					e.printStackTrace();
+				}
+		    	
+	
+		    	
 		    }
 		}
 }
