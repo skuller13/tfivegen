@@ -48,7 +48,8 @@ public class PostActivity extends Activity {
 		job_name = (TextView)findViewById(R.id.job_name_text);
 		price = (TextView)findViewById(R.id.price_text);
 		description = (TextView)findViewById(R.id.description_text);
-		inser_post_thread task = new inser_post_thread();
+		
+		insert_post_thread task = new insert_post_thread();
 		task.execute();
 	}
 	/*
@@ -83,7 +84,7 @@ public class PostActivity extends Activity {
 	
 	// Sub class
 	
-		class inser_post_thread extends AsyncTask<Void,Void,Integer> 
+		class insert_post_thread extends AsyncTask<Void,Void,Integer> 
 		{
 			String result = "nothing";
 			protected Integer doInBackground(Void... params)
@@ -135,8 +136,9 @@ public class PostActivity extends Activity {
 		    	progress.dismiss();
 		    	if(result.equals("done"))
 		    	{
-		    		Intent Post_page = new Intent(PostActivity.this, EmployTask.class);
-		            startActivity(Post_page);
+		    		//Intent Post_page = new Intent(PostActivity.this, EmployTask.class);
+		            //startActivity(Post_page);
+		    		finish();
 		    	}
 		    	else
 		    	{

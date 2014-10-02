@@ -13,6 +13,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -25,6 +27,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EmployTask extends Activity {
 	ProgressDialog progress;
@@ -34,14 +37,23 @@ public class EmployTask extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_employ_task);
+		// login check
+				if(check_login.id != null)
+				{
+					Toast.makeText(getApplicationContext(),"Auto Login success!", Toast.LENGTH_LONG).show();	
+					Intent Post_page = new Intent(EmployTask.this, PostActivity.class);
+		            startActivity(Post_page);
+				}
 	}
 	public void login_click(View view)
 	{
 		progress = new ProgressDialog(this);
 		username = (TextView)findViewById(R.id.username_register);
 		password = (TextView)findViewById(R.id.password_text);
+		
 		login_thread task = new login_thread();
 		task.execute();
+		
 	}
 	public void register_click(View view)
 	{
@@ -132,15 +144,32 @@ public class EmployTask extends Activity {
 		    protected void onPostExecute(Integer n)
 		    {
 		    	progress.dismiss();
-		    	if(result.equals("done"))
+		    	try 
 		    	{
-		    		Intent Post_page = new Intent(EmployTask.this, PostActivity.class);
-		            startActivity(Post_page);
-		    	}
-		    	else
-		    	{
-		    		mbox(result);
-		    	}
+					JSONObject c = new JSONObject(result);
+					check_login.id = c.getString("id");
+					check_login.username = c.getString("username");
+					check_login.password = c.getString("password");
+					check_login.email = c.getString("email");
+					check_login.phone = c.getString("phone");
+					check_login.error_status = c.getString("error_status");
+					
+					if(check_login.error_status.equals("0"))
+					{
+						Toast.makeText(getApplicationContext(),"Login success!", Toast.LENGTH_LONG).show();	
+						Intent Post_page = new Intent(EmployTask.this, PostActivity.class);
+			            startActivity(Post_page);
+					}
+					else
+					{
+						Toast.makeText(getApplicationContext(),"Error : " + check_login.error_status, Toast.LENGTH_LONG).show();	
+					}
+					
+				} 
+		    	catch (JSONException e) 
+				{
+					mbox( e.toString() + "\n" + result);
+				}
 		    }
 		}
 }
