@@ -16,5 +16,22 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    
+    <!-- The button styles -->
+	<style name="buttonStyle">
+    <item name="android:textColor">#ffffff</item>
+    <item name="android:background">#80000000</item>
+
+    <item name="android:button">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:shape="rectangle">
+  	<gradient android:startColor="#ff4c65" 
+    android:endColor="#ff4c65"
+    android:angle="270" />
+  <corners android:radius="3dp" />
+  <stroke android:width="5px" android:color="#eecc68" />
+</shape>
+    </item>
+</style>
 
 </resources>

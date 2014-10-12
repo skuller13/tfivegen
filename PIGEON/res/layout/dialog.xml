@@ -6,6 +6,7 @@
 	android:layout_height="fill_parent"
 	android:paddingLeft="10dip"
 	android:paddingRight="10dip"
+	android:background="#00c8f8"
 >
 
 <TextView
@@ -36,13 +37,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:onClick="viewdetail"
-    android:layout_gravity="right"
-    android:text="View details" />
+    android:layout_gravity="center"
+    android:text="View details"
+    style="@style/buttonStyle" />
 
 <Button
-	android:id="@+id/okdialogbutton"
-	android:layout_width="fill_parent"
-	android:layout_height="wrap_content"
-	android:text="OK"
-/>
+    android:id="@+id/okdialogbutton"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff4c65"
+    android:text="OK" />
+
 </LinearLayout>

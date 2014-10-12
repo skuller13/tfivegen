@@ -23,25 +23,6 @@
         android:text="Job price" />
 
     <TextView
-        android:id="@+id/jview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/jprice"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="53dp"
-        android:text="View:" />
-
-    <Button
-        android:id="@+id/jloc"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/jview"
-        android:layout_alignBottom="@+id/jview"
-        android:layout_toLeftOf="@+id/jview"
-        android:text="Locate" />
-
-    <TextView
         android:id="@+id/jdesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,15 +30,6 @@
         android:layout_below="@+id/jdeschead"
         android:background="#E6E6E6"
         android:text="Job Description" />
-
-    <TextView
-        android:id="@+id/jdeschead"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/jdesc"
-        android:layout_below="@+id/jprice"
-        android:layout_marginTop="14dp"
-        android:text="Description:" />
 
     <ImageView
         android:id="@+id/job_im"
@@ -69,7 +41,7 @@
         android:src="@drawable/loader" />
 
     <Button
-        android:id="@+id/btn_mypost"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/button3"
@@ -78,19 +50,19 @@
         android:text="Email" />
 
     <Button
-        android:id="@+id/btn_sell"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/btn_mypost"
-        android:layout_alignBottom="@+id/btn_mypost"
-        android:layout_toRightOf="@+id/btn_mypost"
+        android:layout_alignBaseline="@+id/button2"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
         android:text="Phone" />
 
     <TextView
         android:id="@+id/jphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_mypost"
+        android:layout_above="@+id/button2"
         android:layout_alignLeft="@+id/job_im"
         android:gravity="center"
         android:text="Phone number: 0913067637" />
@@ -103,5 +75,31 @@
         android:layout_below="@+id/job_im"
         android:layout_marginTop="39dp"
         android:text="SMS" />
+
+    <Button
+        android:id="@+id/jloc"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jdeschead"
+        android:layout_below="@+id/jprice"
+        android:text="Locate" />
+
+    <TextView
+        android:id="@+id/jview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/jloc"
+        android:layout_alignBottom="@+id/jloc"
+        android:layout_toRightOf="@+id/jdeschead"
+        android:text="View:" />
+
+    <TextView
+        android:id="@+id/jdeschead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/jdesc"
+        android:layout_below="@+id/jloc"
+        android:text="Description:" />
 
 </RelativeLayout>

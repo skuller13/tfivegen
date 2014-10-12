@@ -2,34 +2,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fbe2b4"
     tools:context="${relativePackage}.${activityClass}" >
 
     <Button
-        android:id="@+id/btn_sell"
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:background="#F5D0A9"
+        android:background="#ff4c65"
         android:drawableLeft="@drawable/findjob"
         android:onClick="Findjob"
         android:text="@string/findjob"
+        android:textColor="#00c8f8"
         android:textSize="35sp" />
 
     <Button
-        android:id="@+id/btn_mypost"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn_sell"
-        android:layout_alignRight="@+id/btn_sell"
-        android:layout_below="@+id/btn_sell"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/button1"
         android:layout_marginTop="36dp"
-        android:background="#F5D0A9"
+        android:background="#ff4c65"
         android:drawableLeft="@drawable/annouce"
+        android:onClick="Employee"
         android:text="@string/annouce"
-        android:textSize="30sp"
-        android:onClick="Employee" />
+        android:textColor="#00c8f8"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/textView1"
@@ -39,7 +42,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="103dp"
         android:text="@string/advert"
-        android:textColor="#F79F81" />
+        android:textColor="#00c8f8" />
     
 
 </RelativeLayout>

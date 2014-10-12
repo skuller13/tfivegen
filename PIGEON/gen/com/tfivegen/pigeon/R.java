@@ -423,38 +423,40 @@ containing a value of this type.
     public static final class id {
         public static final int FrameLayout1=0x7f070027;
         public static final int RelativeLayout1=0x7f07001b;
-        public static final int action_settings=0x7f07003f;
-        public static final int appIcon=0x7f070035;
+        public static final int action_settings=0x7f070041;
+        public static final int appIcon=0x7f070037;
         public static final int book_now=0x7f070010;
-        public static final int btn_logout=0x7f070034;
-        public static final int btn_mypost=0x7f070023;
-        public static final int btn_sell=0x7f070025;
-        public static final int button3=0x7f070024;
+        public static final int btn_logout=0x7f070036;
+        public static final int btn_mypost=0x7f070034;
+        public static final int btn_sell=0x7f070035;
+        public static final int button1=0x7f070023;
+        public static final int button2=0x7f070021;
+        public static final int button3=0x7f070022;
         public static final int buyButton=0x7f07000a;
         public static final int buy_now=0x7f07000f;
         public static final int buy_with_google=0x7f07000e;
         public static final int classic=0x7f070011;
-        public static final int def_name=0x7f07003a;
-        public static final int description=0x7f07003c;
+        public static final int def_name=0x7f07003c;
+        public static final int description=0x7f07003e;
         public static final int description_text=0x7f07002c;
-        public static final int dlTxt=0x7f070037;
+        public static final int dlTxt=0x7f070039;
         public static final int email=0x7f07002e;
-        public static final int gotopage=0x7f07003d;
+        public static final int gotopage=0x7f07003f;
         public static final int grayscale=0x7f070012;
         public static final int holo_dark=0x7f070005;
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
-        public static final int imagexy=0x7f07003b;
-        public static final int jdesc=0x7f070020;
-        public static final int jdeschead=0x7f070021;
-        public static final int jloc=0x7f07001f;
+        public static final int imagexy=0x7f07003d;
+        public static final int jdesc=0x7f07001e;
+        public static final int jdeschead=0x7f07001f;
+        public static final int jloc=0x7f070025;
         public static final int jname=0x7f07001c;
-        public static final int job_im=0x7f070022;
+        public static final int job_im=0x7f070020;
         public static final int job_name_text=0x7f070029;
-        public static final int jphone=0x7f070026;
+        public static final int jphone=0x7f070024;
         public static final int jprice=0x7f07001d;
-        public static final int jview=0x7f07001e;
-        public static final int layout_root=0x7f070038;
+        public static final int jview=0x7f070026;
+        public static final int layout_root=0x7f07003a;
         public static final int list=0x7f070014;
         public static final int login_button=0x7f07001a;
         public static final int map=0x7f070028;
@@ -462,7 +464,7 @@ containing a value of this type.
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
-        public static final int okdialogbutton=0x7f07003e;
+        public static final int okdialogbutton=0x7f070040;
         public static final int password_1=0x7f07002f;
         public static final int password_2=0x7f07002d;
         public static final int password_text=0x7f070018;
@@ -479,9 +481,9 @@ containing a value of this type.
         public static final int textView2=0x7f070017;
         public static final int textView3=0x7f07002b;
         public static final int textView4=0x7f070031;
-        public static final int textout=0x7f070039;
+        public static final int textout=0x7f07003b;
         public static final int textview_1=0x7f070016;
-        public static final int titleTxt=0x7f070036;
+        public static final int titleTxt=0x7f070038;
         public static final int username=0x7f070030;
         public static final int username_register=0x7f070015;
         public static final int wrap_content=0x7f07000d;
@@ -656,6 +658,9 @@ containing a value of this type.
     
          */
         public static final int WalletFragmentDefaultStyle=0x7f040004;
+        /**  The button styles 
+         */
+        public static final int buttonStyle=0x7f040007;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
