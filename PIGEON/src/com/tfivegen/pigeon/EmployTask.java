@@ -19,12 +19,12 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,12 +37,30 @@ public class EmployTask extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_employ_task);
+		
+		
+	
+		
 		// login check
+		SharedPreferences sp = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE); // ค่าความจำถาวร เช็ค คล้าย cookies
 				if(check_login.id != null)
 				{
 					Toast.makeText(getApplicationContext(),"Auto Login success!", Toast.LENGTH_LONG).show();	
 					Intent Post_page = new Intent(EmployTask.this, User_profile.class);
 		            startActivity(Post_page);
+				}
+				else if(sp.getString("user_username", null) != null && sp.getString("user_password", null) != null)
+				{
+					progress = new ProgressDialog(this);
+					username = (TextView)findViewById(R.id.username_register);
+					password = (TextView)findViewById(R.id.password_text);
+					
+					username.setText(sp.getString("user_username", null));
+					password.setText(sp.getString("user_password", null));
+					
+					login_thread task = new login_thread();
+					task.execute();			
+					
 				}
 	}
 	public void login_click(View view)
@@ -156,10 +174,28 @@ public class EmployTask extends Activity {
 					
 					if(check_login.error_status.equals("0"))
 					{
+						try
+						{
+							SharedPreferences sp = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE);
+							SharedPreferences.Editor editor = sp.edit();
+							editor.putString("user_username", check_login.username);
+							editor.putString("user_password", check_login.password);
+							
+							
+							
+							editor.commit();
+						}
+						catch(Exception ex)
+						{
+							mbox(ex.toString());
+						}
+					
+						
 						Toast.makeText(getApplicationContext(),"Login success!", Toast.LENGTH_LONG).show();	
 						Intent Post_page = new Intent(EmployTask.this, User_profile.class);
 			            startActivity(Post_page);
 			            finish();
+			            
 					}
 					else
 					{
@@ -172,5 +208,9 @@ public class EmployTask extends Activity {
 					mbox( e.toString() + "\n" + result);
 				}
 		    }
+			private SharedPreferences getPreferences(int modePrivate) {
+				// TODO Auto-generated method stub
+				return null;
+			}
 		}
 }

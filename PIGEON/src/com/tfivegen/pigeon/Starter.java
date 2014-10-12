@@ -1,12 +1,15 @@
 package com.tfivegen.pigeon;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+
 
 public class Starter extends Activity {
 
@@ -22,7 +25,10 @@ public class Starter extends Activity {
 	}
 	
 	public void Employee(View view){
-		// login check
+				
+		// login check	
+
+
 			if(check_login.id != null)
 			{
 				Toast.makeText(getApplicationContext(),"Auto Login success!", Toast.LENGTH_LONG).show();	
@@ -35,5 +41,14 @@ public class Starter extends Activity {
 		startActivity(i); //เปิดหน้าใหม่
 			}
 		
+	}
+	public void mbox(String message)
+	{
+		  	AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);                      
+		    dlgAlert.setMessage(message);
+		    dlgAlert.setTitle("Message");              
+		    dlgAlert.setPositiveButton("OK", null);
+		    dlgAlert.setCancelable(true);
+		    dlgAlert.create().show();		    
 	}
 }
