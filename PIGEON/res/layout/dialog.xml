@@ -6,7 +6,7 @@
 	android:layout_height="fill_parent"
 	android:paddingLeft="10dip"
 	android:paddingRight="10dip"
-	android:background="#00c8f8"
+	android:background="#58c4c6"
 >
 
 <TextView
@@ -30,6 +30,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:textAlignment="center"
+    android:textColor="#fdc43c"
     android:text="description" />
 
 <Button
@@ -46,6 +47,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="#ff4c65"
+    android:textColor="#fdc43c"
     android:text="OK" />
 
 </LinearLayout>

@@ -8,11 +8,16 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.tfivegen.pigeon.listviewadaper.Application;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Jobdetail extends Activity {
 	TextView jname,jdesc,jprice,jview,jphone;
@@ -26,6 +31,11 @@ public class Jobdetail extends Activity {
 		Bundle extras=getIntent().getExtras();
 		setview();
 		setdata(extras);
+		MyPhoneListener phoneListener = new MyPhoneListener();
+		TelephonyManager telephonyManager = 
+			(TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+		// receive notifications of telephony state changes 
+		telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
 	}
 	
 	public void setview(){
@@ -74,4 +84,66 @@ public class Jobdetail extends Activity {
 		// ตั้งค่าออปชันเริ่มต้นที่ได้ประกาศไว้ทั้งหมด ให้กับ ImageLoader
 		ImageLoader.getInstance().init(config);
     }
+	
+	/*void phonecall(){
+		try {
+			// set the data
+			String uri = "tel:"+number.getText().toString();
+			Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uri));
+			
+			startActivity(callIntent);
+		}catch(Exception e) {
+			Toast.makeText(getApplicationContext(),"Your call has failed...",
+				Toast.LENGTH_LONG).show();
+			e.printStackTrace();
+		}
+	}*/
+	
+	private class MyPhoneListener extends PhoneStateListener {
+		 
+		private boolean onCall = false;
+ 
+		@Override
+		public void onCallStateChanged(int state, String incomingNumber) {
+ 
+			switch (state) {
+			case TelephonyManager.CALL_STATE_RINGING:
+				// phone ringing...
+				Toast.makeText(Jobdetail.this, incomingNumber + " calls you", 
+						Toast.LENGTH_LONG).show();
+				break;
+			
+			case TelephonyManager.CALL_STATE_OFFHOOK:
+				// one call exists that is dialing, active, or on hold
+				Toast.makeText(Jobdetail.this, "on call...", 
+						Toast.LENGTH_LONG).show();
+				//because user answers the incoming call
+				onCall = true;
+				break;
+
+			case TelephonyManager.CALL_STATE_IDLE:
+				// in initialization of the class and at the end of phone call 
+				
+				// detect flag from CALL_STATE_OFFHOOK
+				if (onCall == true) {
+					Toast.makeText(Jobdetail.this, "restart app after call", 
+							Toast.LENGTH_LONG).show();
+ 
+					// restart our application
+					Intent restart = getBaseContext().getPackageManager().
+						getLaunchIntentForPackage(getBaseContext().getPackageName());
+					restart.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+					startActivity(restart);
+ 
+					onCall = false;
+				}
+				break;
+			default:
+				break;
+			}
+			
+		}
+	}
+	
 }
+

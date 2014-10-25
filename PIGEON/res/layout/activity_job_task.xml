@@ -26,7 +26,7 @@
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:background="#ff4c65"
+            android:background="#e0524e"
             android:clickable="true"
             android:fadingEdge="horizontal"
             android:gravity="top"

@@ -12,11 +12,11 @@
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:background="#ff4c65"
+        android:background="#f46d7e"
         android:drawableLeft="@drawable/findjob"
         android:onClick="Findjob"
         android:text="@string/findjob"
-        android:textColor="#00c8f8"
+        android:textColor="#ffffff"
         android:textSize="35sp" />
 
     <Button
@@ -27,22 +27,30 @@
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button1"
         android:layout_marginTop="36dp"
-        android:background="#ff4c65"
-        android:drawableLeft="@drawable/annouce"
+        android:background="#79c1a9"
+        android:drawableRight="@drawable/annouce"
         android:onClick="Employee"
         android:text="@string/annouce"
-        android:textColor="#00c8f8"
+        android:textColor="#ffffff"
         android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/pigeon_drw" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="103dp"
+        android:layout_marginTop="52dp"
         android:text="@string/advert"
-        android:textColor="#00c8f8" />
-    
+        android:textColor="#dca347" />
 
 </RelativeLayout>
