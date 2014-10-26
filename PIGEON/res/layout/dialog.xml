@@ -37,6 +37,7 @@
     android:id="@+id/gotopage"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
     android:onClick="viewdetail"
     android:layout_gravity="center"
     android:text="View details"
@@ -46,6 +47,8 @@
     android:id="@+id/okdialogbutton"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="10dp"
     android:background="#ff4c65"
     android:textColor="#fdc43c"
     android:text="OK" />

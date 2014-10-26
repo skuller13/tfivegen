@@ -5,6 +5,13 @@
     android:background="#fae2b4"
     tools:context="${relativePackage}.${activityClass}" >
 
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:layout_centerHorizontal="true">
     <TextView
         android:id="@+id/jname"
         android:layout_width="wrap_content"
@@ -31,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/jprice"
         android:layout_below="@+id/jdeschead"
+        android:layout_marginRight="10dp"
+        android:ems="10"
         android:background="#E6E6E6"
         android:textColor="#ffc532"
         android:text="Job Description" />
@@ -43,27 +52,6 @@
         android:layout_below="@+id/jdesc"
         android:layout_marginTop="33dp"
         android:src="@drawable/loader" />
-
-    <TextView
-        android:id="@+id/jphone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignLeft="@+id/job_im"
-        android:gravity="center"
-        android:textColor="#ffc532"
-        android:text="Phone number: 0913067637" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/jphone"
-        android:layout_below="@+id/job_im"
-        android:background="#fe4e5c"
-        android:textColor="#ffc532"
-        android:layout_marginTop="39dp"
-        android:text="SMS" />
 
     <Button
         android:id="@+id/jloc"
@@ -95,27 +83,60 @@
         android:textColor="#ffc532"
         android:text="Description:" />
 
-    <Button
-        android:id="@+id/button1"
+    <TextView
+        android:id="@+id/jphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/jphone"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/button2"
-        android:background="#fe4e5c"
-        android:onClick="phonecall"
-        android:textColor="#ffc532"
-        android:text="Phone" />
-
-    <Button
-        android:id="@+id/button2"
+        android:layout_alignLeft="@+id/job_im"
+        android:layout_below="@+id/job_im"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="7dp"
+        android:text="Phone number: 0913067637"
+        android:textColor="#ffc532" />
+    </RelativeLayout>
+    
+    <RelativeLayout 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button3"
-        android:layout_alignBottom="@+id/button3"
-        android:layout_alignLeft="@+id/jview"
-        android:background="#fe4e5c"
-        android:textColor="#ffc532"
-        android:text="Email" />
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/content"
+        android:layout_marginTop="5dp"
+        >
 
+	    <Button
+	        android:id="@+id/button1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        
+	        android:layout_marginTop="18dp"
+	        android:background="#fe4e5c"
+	        android:onClick="phonecall"
+	        android:text="Phone"
+	        android:textColor="#ffc532" />
+	
+	    <Button
+	        android:id="@+id/button3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/button1"
+	        android:layout_alignBottom="@+id/button1"
+	        android:layout_toRightOf="@+id/button1"
+	        android:layout_marginLeft="5dp"
+	        android:background="#fe4e5c"
+	        android:text="SMS"
+	        android:textColor="#ffc532" />
+	
+	    <Button
+	        android:id="@+id/button2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/button3"
+	        android:layout_alignBottom="@+id/button3"
+	        android:layout_toRightOf="@+id/button3"
+	        android:layout_marginLeft="5dp"
+	        android:background="#fe4e5c"
+	        android:text="Email"
+	        android:textColor="#ffc532" />
+    
+    	</RelativeLayout>
 </RelativeLayout>
