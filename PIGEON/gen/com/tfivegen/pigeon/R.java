@@ -441,7 +441,7 @@ containing a value of this type.
         public static final int description=0x7f070042;
         public static final int description_text=0x7f07002f;
         public static final int dlTxt=0x7f07003d;
-        public static final int email=0x7f070031;
+        public static final int email=0x7f070033;
         public static final int gotopage=0x7f070043;
         public static final int grayscale=0x7f070012;
         public static final int holo_dark=0x7f070005;
@@ -468,8 +468,8 @@ containing a value of this type.
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
         public static final int okdialogbutton=0x7f070044;
-        public static final int password_1=0x7f070032;
-        public static final int password_2=0x7f070030;
+        public static final int password_1=0x7f070031;
+        public static final int password_2=0x7f070032;
         public static final int password_text=0x7f070019;
         public static final int phone=0x7f070035;
         public static final int price_text=0x7f07002d;
@@ -488,7 +488,7 @@ containing a value of this type.
         public static final int textout=0x7f07003f;
         public static final int textview_1=0x7f070016;
         public static final int titleTxt=0x7f07003c;
-        public static final int username=0x7f070033;
+        public static final int username=0x7f070030;
         public static final int username_register=0x7f070017;
         public static final int wrap_content=0x7f07000d;
     }

@@ -124,7 +124,7 @@ int id def_name 0x7f070040
 int id description 0x7f070042
 int id description_text 0x7f07002f
 int id dlTxt 0x7f07003d
-int id email 0x7f070031
+int id email 0x7f070033
 int id gotopage 0x7f070043
 int id grayscale 0x7f070012
 int id holo_dark 0x7f070005
@@ -151,8 +151,8 @@ int id monochrome 0x7f070013
 int id none 0x7f070000
 int id normal 0x7f070001
 int id okdialogbutton 0x7f070044
-int id password_1 0x7f070032
-int id password_2 0x7f070030
+int id password_1 0x7f070031
+int id password_2 0x7f070032
 int id password_text 0x7f070019
 int id phone 0x7f070035
 int id price_text 0x7f07002d
@@ -171,7 +171,7 @@ int id textView4 0x7f070034
 int id textout 0x7f07003f
 int id textview_1 0x7f070016
 int id titleTxt 0x7f07003c
-int id username 0x7f070033
+int id username 0x7f070030
 int id username_register 0x7f070017
 int id wrap_content 0x7f07000d
 int integer google_play_services_version 0x7f080000
