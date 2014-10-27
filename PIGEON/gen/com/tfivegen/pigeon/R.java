@@ -440,7 +440,7 @@ containing a value of this type.
         public static final int datalist01=0x7f070014;
         public static final int def_name=0x7f070041;
         public static final int description=0x7f070043;
-        public static final int description_text=0x7f070030;
+        public static final int description_text=0x7f07002e;
         public static final int dlTxt=0x7f07003e;
         public static final int email=0x7f070034;
         public static final int gotopage=0x7f070044;
@@ -473,7 +473,7 @@ containing a value of this type.
         public static final int password_2=0x7f070033;
         public static final int password_text=0x7f07001a;
         public static final int phone=0x7f070036;
-        public static final int price_text=0x7f07002e;
+        public static final int price_text=0x7f070030;
         public static final int production=0x7f070007;
         public static final int register_button=0x7f07001d;
         public static final int sandbox=0x7f070008;

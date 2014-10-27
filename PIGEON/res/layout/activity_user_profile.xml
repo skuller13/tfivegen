@@ -6,15 +6,18 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tfivegen.pigeon.User_profile" >
+    tools:context="com.tfivegen.pigeon.User_profile"
+    android:background="#f9e1b3" >
 
     <Button
         android:id="@+id/btn_mypost"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn_sell"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="10dp"
+        android:background="#ff4c67"
+        android:textColor="#ffffff"
         android:text="my post" 
         android:onClick="mypost"
         />
@@ -22,11 +25,13 @@
 
     <Button
         android:id="@+id/btn_sell"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="83dp"
+        android:background="#ff4c67"
+        android:textColor="#ffffff"
         android:text="Sell" 
         android:onClick="sell"
         />
@@ -37,6 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:textColor="#ffffff"
+        android:background="#ff4c67"
         android:text="Logout"
         android:onClick="logout"
         />

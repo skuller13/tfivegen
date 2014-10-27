@@ -123,7 +123,7 @@ int id content 0x7f07001f
 int id datalist01 0x7f070014
 int id def_name 0x7f070041
 int id description 0x7f070043
-int id description_text 0x7f070030
+int id description_text 0x7f07002e
 int id dlTxt 0x7f07003e
 int id email 0x7f070034
 int id gotopage 0x7f070044
@@ -156,7 +156,7 @@ int id password_1 0x7f070032
 int id password_2 0x7f070033
 int id password_text 0x7f07001a
 int id phone 0x7f070036
-int id price_text 0x7f07002e
+int id price_text 0x7f070030
 int id production 0x7f070007
 int id register_button 0x7f07001d
 int id sandbox 0x7f070008

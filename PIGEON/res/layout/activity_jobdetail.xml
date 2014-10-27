@@ -50,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/jdesc"
         android:layout_below="@+id/jdesc"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="33dp"
         android:src="@drawable/loader" />
 

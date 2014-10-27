@@ -2,23 +2,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="${relativePackage}.${activityClass}" >
+    tools:context="${relativePackage}.${activityClass}"
+    android:background="#f9e1b3" >
 
+    <RelativeLayout 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="#ffffff"
+        >
     <TextView
         android:id="@+id/textview_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_margin="5dp"
+        android:textColor="#fec031"
         android:text="Job name" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textview_1"
-        android:layout_below="@+id/job_name_text"
-        android:text="Price" />
 
     <EditText
         android:id="@+id/job_name_text"
@@ -26,40 +27,62 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/textview_1"
+        android:layout_margin="5dp"
+        android:background="#c7b19a"
+        android:singleLine="true"
+        android:textColor="#ffffff"
         android:ems="10" />
+
+    <EditText
+        android:id="@+id/description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView3"
+        android:layout_margin="5dp"
+        android:background="#c7b19a"
+        android:textColor="#ffffff"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:minLines="3" />
 
     <EditText
         android:id="@+id/price_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_below="@+id/job_name_text"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@+id/textview_1"
+        android:background="#c7b19a"
+        android:textColor="#ffffff"
         android:ems="10"
-        android:inputType="number" >
+        android:inputType="number"
+        android:singleLine="true" />
 
-        <requestFocus />
-    </EditText>
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/price_text"
+        android:layout_alignLeft="@+id/textview_1"
+        android:layout_below="@+id/textview_1"
+        android:layout_margin="5dp"
+        android:textColor="#fec031"
+        android:text="Price" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/price_text"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="24dp"
+        android:textColor="#fec031"
         android:text="Drescription" />
-
-    <EditText
-        android:id="@+id/description_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView3"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:minLines="3" />
-
+    </RelativeLayout>
+    
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -67,6 +90,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="#ff4c67"
+        android:textColor="#ffffff"
         android:text="Post" 
         android:onClick="post_click"/>
 
