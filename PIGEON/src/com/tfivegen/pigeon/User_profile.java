@@ -13,25 +13,46 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.tfivegen.pigeon.PostActivity.insert_post_thread;
+import com.tfivegen.pigeon.listviewadaper.Application;
+import com.tfivegen.pigeon.listviewadaper.ApplicationAdapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class User_profile extends Activity {
 	ProgressDialog progress;
+	List<Application> apps;
+	Dialog screenDialog;
+	String job_title,details;
+	static final int ID_SCREENDIALOG = 1;
+	ListView list;
+	Application databundle;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +69,6 @@ public class User_profile extends Activity {
 	public void mypost(View view)
 	{
 		Toast.makeText(getApplicationContext(),"mypost clicked", Toast.LENGTH_LONG).show();	
-		
 		progress = new ProgressDialog(this);
 		read_post_thread task = new read_post_thread();
 		task.execute();
@@ -56,8 +76,76 @@ public class User_profile extends Activity {
 	}
 	public void mypost_click_finish(String json_result)
 	{
-		mbox(json_result);
+		try {
+            // convert json string to json array
+            JSONArray aJson = new JSONArray(json_result);
+            // create apps list
+            apps = new ArrayList<Application>();
+            
+            for(int i=0; i<aJson.length(); i++) {
+                JSONObject json = aJson.getJSONObject(i);
+                Application app = new Application();
+                app.setTitle(json.getString("job_name"));
+                app.setDescript(json.getString("description"));
+                app.setPrice(Integer.parseInt(json.getString("price")));
+                app.setEmpid(Integer.parseInt(json.getString("employer_id")));  
+                app.SetView(Integer.parseInt(json.getString("view")));
+                //app.setIcon(json.getString("icon"));
+                
+                // add the app to apps list
+                apps.add(app);
+            }
+            
+            //notify the activity that fetch data has been complete
+        } catch (JSONException e){
+            return;
+        }
+		//mbox(json_result);
+		showDialog(ID_SCREENDIALOG);
 	}
+	
+	protected Dialog onCreateDialog(int id) {
+	     // TODO Auto-generated method stub
+	     
+	     screenDialog = null;
+	     switch(id){
+	     case(ID_SCREENDIALOG):
+	      screenDialog = new Dialog(this);
+	      screenDialog.setContentView(R.layout.activity_data_list);
+	      list=(ListView)screenDialog.findViewById(R.id.list);
+	      ApplicationAdapter adapter = new ApplicationAdapter(this, apps);
+	      list.setAdapter(adapter);
+	     }
+	     return screenDialog;
+	    }
+	    
+	    @Override
+	    protected void onPrepareDialog(int id, Dialog dialog) {
+	     // TODO Auto-generated method stub
+	     switch(id){
+	     case(ID_SCREENDIALOG):
+	     	dialog.setTitle("Job Details");
+	     	Button myButton = new Button(this);
+	     	myButton.setText("Cancel");
+	     	myButton.setBackgroundColor(Color.parseColor("#ff4c67"));
+	     	myButton.setTextColor(Color.parseColor("#ffffff"));
+	     	RelativeLayout datlis = (RelativeLayout)screenDialog.findViewById(R.id.datalist01);
+	     	LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+	     	lp.addRule(RelativeLayout.BELOW, list.getId());
+	     	datlis.addView(myButton, lp);
+	     	myButton.setOnClickListener(dismissscreen);
+	     	
+	      break;
+	     }
+	    }
+	    
+	    private Button.OnClickListener dismissscreen= new Button.OnClickListener(){
+	    	@Override
+		     public void onClick(View arg0) {
+		      // TODO Auto-generated method stub
+		      screenDialog.dismiss();
+		     }};
+	     
 	public void logout(View view)
 	{
 		try
@@ -106,7 +194,6 @@ public class User_profile extends Activity {
 		    dlgAlert.create().show();		    
 	}
 /****************************************************************************************************************/
-	
 	// Sub class
 	
 		class read_post_thread extends AsyncTask<Void,Void,Integer> 
