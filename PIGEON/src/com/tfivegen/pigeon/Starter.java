@@ -31,7 +31,6 @@ public class Starter extends Activity {
 
 			if(check_login.id != null)
 			{
-				Toast.makeText(getApplicationContext(),"Auto Login success!", Toast.LENGTH_LONG).show();	
 				Intent Post_page = new Intent(Starter.this, User_profile.class);
 		        startActivity(Post_page);
 			}

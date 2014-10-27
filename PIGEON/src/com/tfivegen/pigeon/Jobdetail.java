@@ -31,11 +31,6 @@ public class Jobdetail extends Activity {
 		Bundle extras=getIntent().getExtras();
 		setview();
 		setdata(extras);
-		MyPhoneListener phoneListener = new MyPhoneListener();
-		TelephonyManager telephonyManager = 
-			(TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
-		// receive notifications of telephony state changes 
-		telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
 	}
 	
 	public void setview(){
@@ -52,6 +47,7 @@ public class Jobdetail extends Activity {
 		jdesc.setText(ext.getString("descript"));
 		jprice.setText("Price: "+String.valueOf(ext.getLong("price")));
 		jview.setText("View: "+String.valueOf(ext.getInt("view")));
+		ImageLoading();
 		ImageLoader imageLoader=ImageLoader.getInstance();
 		imageLoader.displayImage(image_url, image);
 	}
@@ -84,20 +80,6 @@ public class Jobdetail extends Activity {
 		// ตั้งค่าออปชันเริ่มต้นที่ได้ประกาศไว้ทั้งหมด ให้กับ ImageLoader
 		ImageLoader.getInstance().init(config);
     }
-	
-	/*void phonecall(){
-		try {
-			// set the data
-			String uri = "tel:"+number.getText().toString();
-			Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uri));
-			
-			startActivity(callIntent);
-		}catch(Exception e) {
-			Toast.makeText(getApplicationContext(),"Your call has failed...",
-				Toast.LENGTH_LONG).show();
-			e.printStackTrace();
-		}
-	}*/
 	
 	private class MyPhoneListener extends PhoneStateListener {
 		 

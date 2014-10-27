@@ -17,8 +17,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.tfivegen.pigeon.PostActivity.insert_post_thread;
 import com.tfivegen.pigeon.listviewadaper.Application;
 import com.tfivegen.pigeon.listviewadaper.ApplicationAdapter;
 
@@ -36,13 +34,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class User_profile extends Activity {
 	ProgressDialog progress;
@@ -51,7 +51,6 @@ public class User_profile extends Activity {
 	String job_title,details;
 	static final int ID_SCREENDIALOG = 1;
 	ListView list;
-	Application databundle;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +89,6 @@ public class User_profile extends Activity {
                 app.setPrice(Integer.parseInt(json.getString("price")));
                 app.setEmpid(Integer.parseInt(json.getString("employer_id")));  
                 app.SetView(Integer.parseInt(json.getString("view")));
-                //app.setIcon(json.getString("icon"));
-                
-                // add the app to apps list
                 apps.add(app);
             }
             
@@ -115,6 +111,20 @@ public class User_profile extends Activity {
 	      list=(ListView)screenDialog.findViewById(R.id.list);
 	      ApplicationAdapter adapter = new ApplicationAdapter(this, apps);
 	      list.setAdapter(adapter);
+	      list.setOnItemClickListener(new OnItemClickListener(){
+	        	public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+	        	    screenDialog.dismiss();
+	        	    screenDialog.cancel();
+	        		Intent in=new Intent(getApplicationContext(),Jobdetail.class);
+	        	    Bundle extras = new Bundle();
+	        		extras.putString("name", apps.get(position).getTitle());
+	        		extras.putString("descript", apps.get(position).getDescript());
+	        	    extras.putLong("price", apps.get(position).getPrice());
+	        	    extras.putInt("view", apps.get(position).getView());
+	        	    in.putExtras(extras);
+	        	    startActivity(in); //เปิดหน้าใหม่*/
+	        	  }
+	        	});
 	     }
 	     return screenDialog;
 	    }
