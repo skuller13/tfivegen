@@ -10,14 +10,14 @@
     <string name="employpage">Empty Page</string>
     <string name="title_activity_job_task">Find Job</string>
     <string name="title_activity_my_location">My Location</string>
-    <string name="title_activity_data_list">Job list</string>
-    <string name="title_activity_employ_task">Employee</string>
-    <string name="title_activity_post">Post</string>
+    <string name="title_activity_data_list">Job List</string>
+    <string name="title_activity_employ_task">Member</string>
+    <string name="title_activity_post">Job Post</string>
     <string name="title_activity_register">Sign Up</string>
-    <string name="title_activity_list">List</string>
+    <string name="title_activity_list">Job List</string>
     <string name="def_name">Job name</string>
     <string name="title_activity_jobdetail">Job Details</string>
-    <string name="title_activity_user_profile">User_profile</string>
+    <string name="title_activity_user_profile">User Action</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 

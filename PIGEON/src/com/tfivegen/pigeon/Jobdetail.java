@@ -1,29 +1,50 @@
 package com.tfivegen.pigeon;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.tfivegen.pigeon.listviewadaper.Application;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.telephony.PhoneStateListener;
-import android.telephony.TelephonyManager;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 public class Jobdetail extends Activity {
+	ProgressDialog progress;
 	TextView jname,jdesc,jprice,jview,jphone;
 	String image_url="http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
 	List<Application> data;
 	ImageView image;
+	String emp_id="1";
+	String phone = null;
+	String email = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +52,17 @@ public class Jobdetail extends Activity {
 		Bundle extras=getIntent().getExtras();
 		setview();
 		setdata(extras);
+		
+		MyPhoneListener phoneListener = new MyPhoneListener();
+		TelephonyManager telephonyManager = 
+			(TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
+		// receive notifications of telephony state changes 
+		telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+		
+		progress = new ProgressDialog(this);
+		insert_post_thread task = new insert_post_thread();
+		task.execute();
+		
 	}
 	
 	public void setview(){
@@ -81,6 +113,20 @@ public class Jobdetail extends Activity {
 		ImageLoader.getInstance().init(config);
     }
 	
+	public void phonecall(View view){
+		try {
+			// set the data
+			String uri = "tel:"+phone;
+			Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(uri));
+			
+			startActivity(callIntent);
+		}catch(Exception e) {
+			Toast.makeText(getApplicationContext(),"Your call has failed...",
+				Toast.LENGTH_LONG).show();
+			e.printStackTrace();
+		}
+	}
+	/************************* Phone Class ****************/
 	private class MyPhoneListener extends PhoneStateListener {
 		 
 		private boolean onCall = false;
@@ -126,6 +172,75 @@ public class Jobdetail extends Activity {
 			
 		}
 	}
+	public void mbox(String message)
+	{
+		  	AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);                      
+		    dlgAlert.setMessage(message);
+		    dlgAlert.setTitle("Message");              
+		    dlgAlert.setPositiveButton("OK", null);
+		    dlgAlert.setCancelable(true);
+		    dlgAlert.create().show();		    
+	}
+/****************************************************************************************************************/
 	
+	// Sub class
+	
+		class insert_post_thread extends AsyncTask<Void,Void,Integer> 
+		{
+			String result = "nothing";
+			protected Integer doInBackground(Void... params)
+			{	
+				
+				try 
+				{
+					
+					HttpClient client = new DefaultHttpClient();
+					HttpPost post = new HttpPost("http://pigeon.meximas.com/pigeon/find_data.php");
+					
+					List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+					pairs.add(new BasicNameValuePair("member_id",emp_id));
+					post.setEntity(new UrlEncodedFormEntity(pairs));
+					
+					HttpResponse response = client.execute(post);
+					result = EntityUtils.toString(response.getEntity());
+					
+					
+				} 
+				catch (ClientProtocolException e) 
+				{		
+					result = e.toString();
+					e.printStackTrace();
+				} 
+				catch (IOException e) 
+				{
+					result = e.toString();
+					e.printStackTrace();
+				}		
+						
+				return null;	
+			}
+			protected void onPreExecute()
+			{
+				progress.setMessage("Connecting...");
+				progress.show();
+			}
+		    protected void onProgressUpdate() 
+		    {
+		    	
+		    }		
+		    protected void onPostExecute(Integer n)
+		    {		    	
+		    	progress.dismiss();		 
+		    	
+				try {
+					JSONObject c = new JSONObject(result);
+					phone = c.getString("phone");
+					email = c.getString("email");				} 
+				catch (JSONException e) 
+				{
+					e.printStackTrace();
+				}		    		
+		    }
+		}
 }
 
