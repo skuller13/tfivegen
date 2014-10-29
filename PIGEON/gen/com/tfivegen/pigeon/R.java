@@ -423,7 +423,7 @@ containing a value of this type.
     public static final class id {
         public static final int FrameLayout1=0x7f07002b;
         public static final int RelativeLayout1=0x7f07001e;
-        public static final int action_settings=0x7f070046;
+        public static final int action_settings=0x7f070047;
         public static final int appIcon=0x7f07003c;
         public static final int book_now=0x7f070010;
         public static final int btn_logout=0x7f07003b;
@@ -465,6 +465,7 @@ containing a value of this type.
         public static final int login_button=0x7f07001c;
         public static final int map=0x7f07002c;
         public static final int match_parent=0x7f07000c;
+        public static final int messagetext1=0x7f070046;
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;
         public static final int normal=0x7f070001;
@@ -508,6 +509,7 @@ containing a value of this type.
         public static final int activity_user_profile=0x7f030008;
         public static final int app_custom_list=0x7f030009;
         public static final int dialog=0x7f03000a;
+        public static final int message=0x7f03000b;
     }
     public static final class menu {
         public static final int user_profile=0x7f0a0000;

@@ -106,7 +106,7 @@ int drawable tab_list 0x7f02002b
 int drawable tabs 0x7f02002c
 int id FrameLayout1 0x7f07002b
 int id RelativeLayout1 0x7f07001e
-int id action_settings 0x7f070046
+int id action_settings 0x7f070047
 int id appIcon 0x7f07003c
 int id book_now 0x7f070010
 int id btn_logout 0x7f07003b
@@ -148,6 +148,7 @@ int id list 0x7f070015
 int id login_button 0x7f07001c
 int id map 0x7f07002c
 int id match_parent 0x7f07000c
+int id messagetext1 0x7f070046
 int id monochrome 0x7f070013
 int id none 0x7f070000
 int id normal 0x7f070001
@@ -187,6 +188,7 @@ int layout activity_starter 0x7f030007
 int layout activity_user_profile 0x7f030008
 int layout app_custom_list 0x7f030009
 int layout dialog 0x7f03000a
+int layout message 0x7f03000b
 int menu user_profile 0x7f0a0000
 int string action_settings 0x7f06002c
 int string advert 0x7f06001e

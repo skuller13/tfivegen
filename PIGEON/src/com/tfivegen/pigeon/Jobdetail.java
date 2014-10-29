@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -25,8 +26,11 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.telephony.PhoneStateListener;
+import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,9 +46,12 @@ public class Jobdetail extends Activity {
 	String image_url="http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
 	List<Application> data;
 	ImageView image;
-	String emp_id="1";
-	String phone = null;
-	String email = null;
+	String phone = null,email = null,emp_id="1";
+	Dialog screenDialog;
+	static final int ID_SCREENDIALOG = 1;
+	EditText messageText;
+	Button cancel,send;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -86,30 +93,16 @@ public class Jobdetail extends Activity {
 	
 	public void ImageLoading(){
    	 DisplayImageOptions.Builder optionBuilder = new DisplayImageOptions.Builder();
-		// จากนั้นก็เซ็ตออปชันต่างๆ ตามรายการข้างล่างนี้
-		// ตั้งว่าจะโชว์รูปอะไร เมื่อ ImageView ไม่มีภาพ
 		optionBuilder.showImageForEmptyUri(R.drawable.ic_launcher);
-		// จะให้โชว์รูปอะไร ถ้าโหลดรูปภาพมาแสดงไม่ได้
       	optionBuilder.showImageOnFail(R.drawable.ic_launcher);
-	        // ตั้งให้ cache รูปลง memory
-	        optionBuilder.cacheInMemory(true);
-	        // ตั้งให้ cache รูปลงเครื่อง
-	        optionBuilder.cacheOnDisk(true);
-		// จากนั้นก็ build ค่าทั้งหมด ใส่ตัวแปร options 
+	    optionBuilder.cacheInMemory(true);
+	    optionBuilder.cacheOnDisk(true);
 		DisplayImageOptions options = optionBuilder.build();
-		
-		
 		ImageLoaderConfiguration.Builder loaderBuilder = 
 				new ImageLoaderConfiguration.Builder(getApplicationContext());
-		
-		// ตั้งค่า option โดยใช้ options ที่ได้ตั้งค่าไว้ด้านบน
 		loaderBuilder.defaultDisplayImageOptions(options);
-		// ตั้งค่าให้ cache รูปมีขนาด 240x240 
 		loaderBuilder.diskCacheExtraOptions(800, 800, null);
-		
 		ImageLoaderConfiguration config = loaderBuilder.build();
-		
-		// ตั้งค่าออปชันเริ่มต้นที่ได้ประกาศไว้ทั้งหมด ให้กับ ImageLoader
 		ImageLoader.getInstance().init(config);
     }
 	
@@ -126,6 +119,68 @@ public class Jobdetail extends Activity {
 			e.printStackTrace();
 		}
 	}
+	
+	public void messageinstant(View view){
+		showDialog(ID_SCREENDIALOG);
+	}
+	
+	   @Override
+	    protected Dialog onCreateDialog(int id) {
+	     // TODO Auto-generated method stub
+	     
+	     screenDialog = null;
+	     switch(id){
+	     case(ID_SCREENDIALOG):
+	      screenDialog = new Dialog(this);
+	      screenDialog.setContentView(R.layout.message);
+	      messageText=(EditText)screenDialog.findViewById(R.id.messagetext1);
+	      send=(Button)screenDialog.findViewById(R.id.button1);
+	      send.setOnClickListener(sendmessage);
+	      cancel=(Button)screenDialog.findViewById(R.id.button2);
+	      cancel.setOnClickListener(cancelmessage);
+	     }
+	     return screenDialog;
+	    }
+	    
+	    @Override
+	    protected void onPrepareDialog(int id, Dialog dialog) {
+	     // TODO Auto-generated method stub
+	     switch(id){
+	     case(ID_SCREENDIALOG):
+	     	dialog.setTitle("Send Instant Message");
+	      break;
+	     }
+	    }
+	    
+	    private Button.OnClickListener sendmessage
+	     = new Button.OnClickListener(){
+	     
+	     @Override
+	     public void onClick(View arg0) {
+	      // TODO Auto-generated method stub
+	      screenDialog.dismiss();
+	      String sms = messageText.getText().toString();
+	    	try {
+				SmsManager smsManager = SmsManager.getDefault();
+				smsManager.sendTextMessage(phone, null, sms, null, null);
+				Toast.makeText(getApplicationContext(), "SMS Sent!",
+						Toast.LENGTH_LONG).show();
+			} catch (Exception e) {
+				Toast.makeText(getApplicationContext(),
+						"SMS faild, please try again later!",
+						Toast.LENGTH_LONG).show();
+				e.printStackTrace();
+			}
+	     }};
+	     
+	     private Button.OnClickListener cancelmessage
+	     = new Button.OnClickListener(){
+	     
+	     @Override
+	     public void onClick(View arg0) {
+	      screenDialog.dismiss();
+	     }};
+	     
 	/************************* Phone Class ****************/
 	private class MyPhoneListener extends PhoneStateListener {
 		 

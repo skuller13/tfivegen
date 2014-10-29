@@ -157,8 +157,6 @@ public class DataList extends Activity implements FetchDataListener {
  	        optionBuilder.cacheOnDisk(true);
  		// จากนั้นก็ build ค่าทั้งหมด ใส่ตัวแปร options 
  		DisplayImageOptions options = optionBuilder.build();
- 		
- 		
  		ImageLoaderConfiguration.Builder loaderBuilder = 
  				new ImageLoaderConfiguration.Builder(getApplicationContext());
  		

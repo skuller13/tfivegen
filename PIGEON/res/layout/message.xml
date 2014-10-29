@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="#fae2b4">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Please enter your message" />
+
+    <EditText
+        android:id="@+id/messagetext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#c7b19a"
+        android:textColor="#ffffff"
+        android:ems="10"
+        android:maxLines="10"
+        android:inputType="textMultiLine" />
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/messagetext1"
+        android:layout_margin="8dp">
+    
+	    <Button
+	        android:id="@+id/button1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="#fe4e5c"
+	        android:text="Send"
+	        android:textColor="#ffc532" />
+	    
+	    <Button
+	        android:id="@+id/button2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_toRightOf="@+id/button1"
+	        android:onClick="onClick"
+	        android:background="#fe4e5c"
+	        android:layout_marginLeft="5dp"
+	        android:text="Cancel"
+	        android:textColor="#ffc532" />
+    
+    </RelativeLayout>
+
+</RelativeLayout>

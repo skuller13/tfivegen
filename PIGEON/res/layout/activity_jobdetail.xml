@@ -122,6 +122,7 @@
 	        android:layout_alignBottom="@+id/button1"
 	        android:layout_toRightOf="@+id/button1"
 	        android:layout_marginLeft="5dp"
+	        android:onClick="messageinstant"
 	        android:background="#fe4e5c"
 	        android:text="SMS"
 	        android:textColor="#ffc532" />
