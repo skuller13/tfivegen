@@ -23,6 +23,11 @@ public class JobTask extends TabActivity {
       
       TabSpec MyLocation = tabHost.newTabSpec("Location"); //สร้างแท็บใหม่ขึ้นมาอีก (Tab หน้าที่ไปตำแหน่งของเรา)
       Intent new1Intent = new Intent(this, MyLocation.class);//ตั้งค่าหน้า
+      Bundle extras=new Bundle();
+      extras.putInt("mode", 1);
+      extras.putDouble("latitude", 0);
+      extras.putDouble("longitude", 0);
+      new1Intent.putExtras(extras);
       MyLocation.setIndicator("").setContent(new1Intent); //setContent คือ ให้ไปหน้านั้นเมื่อกดปุ่ม
       
       tabHost.addTab(MyLocation); //เพิ่มแท็บลงไปในหน้ามือถือ

@@ -46,6 +46,7 @@ public class Jobdetail extends Activity {
 	TextView jname,jdesc,jprice,jview,jphone;
 	String image_url="http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
 	List<Application> data;
+	Double latitude=null,longitude=null;
 	ImageView image;
 	String phone = null,email = null,emp_id=null;
 	Dialog screenDialog;
@@ -88,6 +89,8 @@ public class Jobdetail extends Activity {
 		jprice.setText("Price: "+String.valueOf(ext.getLong("price")));
 		jview.setText("View: "+String.valueOf(ext.getInt("view")));
 		emp_id=String.valueOf(ext.getInt("employee_id"));
+		latitude=ext.getDouble("latitude");
+		longitude=ext.getDouble("longitude");
 		ImageLoading();
 		ImageLoader imageLoader=ImageLoader.getInstance();
 		imageLoader.displayImage(image_url, image);
@@ -194,7 +197,13 @@ public class Jobdetail extends Activity {
 	     }};
 	     
 	     public void locate(View view){
-	    	 
+	    	 Intent location_act=new Intent(Jobdetail.this,MyLocation.class);
+	    	 Bundle extras = new Bundle();
+	    	 extras.putInt("mode",2);
+	    	 extras.putDouble("latitude", latitude);
+	    	 extras.putDouble("longitude", longitude);
+	    	 location_act.putExtras(extras);
+	    	 startActivity(location_act);
 	     }
 	     
 	/************************* Phone Class ****************/

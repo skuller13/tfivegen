@@ -89,6 +89,8 @@ public class User_profile extends Activity {
                 app.setPrice(Integer.parseInt(json.getString("price")));
                 app.setEmpid(Integer.parseInt(json.getString("employer_id")));  
                 app.SetView(Integer.parseInt(json.getString("view")));
+                app.setLatitude(Double.parseDouble(json.getString("latitude")));
+                app.setLongitude(Double.parseDouble(json.getString("longitude")));
                 apps.add(app);
             }
             
@@ -121,6 +123,8 @@ public class User_profile extends Activity {
 	        		extras.putString("descript", apps.get(position).getDescript());
 	        	    extras.putLong("price", apps.get(position).getPrice());
 	        	    extras.putInt("view", apps.get(position).getView());
+	        	    extras.putDouble("latitude", apps.get(position).getLatitude());
+	        	    extras.putDouble("longtitude",apps.get(position).getLongitude());
 	        	    in.putExtras(extras);
 	        	    startActivity(in); //เปิดหน้าใหม่*/
 	        	  }

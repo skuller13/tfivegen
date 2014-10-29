@@ -25,10 +25,7 @@ public class Starter extends Activity {
 	}
 	
 	public void Employee(View view){
-				
 		// login check	
-
-
 			if(check_login.id != null)
 			{
 				Intent Post_page = new Intent(Starter.this, User_profile.class);

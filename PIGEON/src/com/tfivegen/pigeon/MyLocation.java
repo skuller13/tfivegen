@@ -26,14 +26,23 @@ public class MyLocation extends Activity implements android.location.LocationLis
 	private GoogleMap googleMap;
 	protected String latitude,longitude; 
 	public static int MIN_TIME=1000*60*1,MIN_DISTANCE=10,MAP_ZOOM=13;
+	public static int mode=0;
+	public static LatLng MyPos;
+	public static double latitude_pos,longitude_pos;
 	
    @Override
    protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
       setContentView(R.layout.activity_my_location);
+      Bundle extras= getIntent().getExtras();
+      retrievedata(extras);
       try {
     	  		l=getLocation(); //เข้าฟังก์ชัน getLocation เพื่อรับตำแหน่งปัจจุบัน
-  	  			LatLng MyPos=new LatLng(l.getLatitude(),l.getLongitude()); //MyPos เอาไว้เก็บค่า 2 ค่านั่นคือ ละติจูด และ ลองจิจูด นั่นเอง...!
+    	  		if(mode!=2)
+    	  			MyPos=new LatLng(l.getLatitude(),l.getLongitude()); //MyPos เอาไว้เก็บค่า 2 ค่านั่นคือ ละติจูด และ ลองจิจูด นั่นเอง...!
+    	  		else
+    	  			MyPos=new LatLng(latitude_pos,longitude_pos);
+    	  			
   	  			if (googleMap == null) 
   	  				googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap(); //เช็คว่ามีแผนที่อยู่แล้วหรือไม่ ถ้าไม่ ก็จะรับแผนที่เข้ามาใส่ใน R.id.map
   	  			googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL); //ตั้งค่าแผนที่ให้มีแค่ ถนน กับอาคาร (ปกติจะเห็นภูมิปรเทศด้วย)
@@ -47,6 +56,12 @@ public class MyLocation extends Activity implements android.location.LocationLis
       		} catch (Exception e) {
       			e.printStackTrace(); //Try,catch อันนี้เป็นประมาณว่า ดักจับ Error ถ้าเกิด Error ขึ้นจะรายงานบน debug log
       	}
+   }
+   
+   public void retrievedata(Bundle ext){
+	   mode=ext.getInt("mode");
+	   latitude_pos=ext.getDouble("latitude");
+	   longitude_pos=ext.getDouble("longitude");
    }
    
    private void buildAlertMessageNoGps() { //ฟังก์ชั่นนี้เอาไว้ถามผู้ใช้เมื่อไม่มีการเปิด device รับตำแหน่งใดๆ

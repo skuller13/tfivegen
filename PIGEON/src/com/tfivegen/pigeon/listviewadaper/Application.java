@@ -6,7 +6,7 @@ public class Application {
     private int empid;
     private String desc;
     private int view;
-    //private String icon;
+    private double longitude,latitude;
     
     public String getTitle() {
         return jobname;
@@ -42,10 +42,20 @@ public class Application {
     public void SetView(int viewer) {
     	this.view=viewer;
     }
-    /*public String getIcon() {
-        return icon;
+    
+    public double getLatitude() {
+        return latitude;
     }
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }*/
+    
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+    
+    public double getLongitude() {
+        return longitude;
+    }
+    
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 }
