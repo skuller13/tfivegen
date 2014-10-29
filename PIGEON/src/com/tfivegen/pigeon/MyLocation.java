@@ -44,8 +44,6 @@ public class MyLocation extends Activity implements android.location.LocationLis
   	  				.zoom(MAP_ZOOM)
   	  				.build(); //ตั้งค่าระดับแหน่งการซูม,ตำแหน่งละลอง
   	  			googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition)); //กล้องจับไปตามค่าที่ตั้งไว้ข้างบน
-  	  			String Text = "My current location is: " +"Latitud = " + l.getLatitude() +"Longitud = " + l.getLongitude();
-  	  			Toast.makeText(getApplicationContext(),Text,Toast.LENGTH_LONG).show(); //โชว์ข้อความตำแหน่งบนมือถือ (อันนี้ไม่เกี่ยว)
       		} catch (Exception e) {
       			e.printStackTrace(); //Try,catch อันนี้เป็นประมาณว่า ดักจับ Error ถ้าเกิด Error ขึ้นจะรายงานบน debug log
       	}

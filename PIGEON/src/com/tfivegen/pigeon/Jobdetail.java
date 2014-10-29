@@ -144,6 +144,16 @@ public class Jobdetail extends Activity {
 	     return screenDialog;
 	    }
 	    
+	   public void emailaction(View view){
+		   Intent i = new Intent(Intent.ACTION_SEND);  
+		   i.setType("message/rfc822") ; // use from live device
+		   
+		   i.putExtra(Intent.EXTRA_EMAIL,  new String[] { email });  
+		   i.putExtra(Intent.EXTRA_SUBJECT,"ต้องการทำงานตอนนี้!");  
+		   //i.putExtra(Intent.EXTRA, value)
+		   startActivity(Intent.createChooser(i, "Select email application."));
+	   }
+	   
 	    @Override
 	    protected void onPrepareDialog(int id, Dialog dialog) {
 	     // TODO Auto-generated method stub

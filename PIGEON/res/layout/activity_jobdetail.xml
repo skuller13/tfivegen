@@ -137,6 +137,7 @@
 	        android:layout_toRightOf="@+id/button3"
 	        android:layout_marginLeft="5dp"
 	        android:background="#fe4e5c"
+	        android:onClick="emailaction"
 	        android:text="Email"
 	        android:textColor="#ffc532" />
     
