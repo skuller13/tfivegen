@@ -32,6 +32,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +47,7 @@ public class Jobdetail extends Activity {
 	String image_url="http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
 	List<Application> data;
 	ImageView image;
-	String phone = null,email = null,emp_id="1";
+	String phone = null,email = null,emp_id=null;
 	Dialog screenDialog;
 	static final int ID_SCREENDIALOG = 1;
 	EditText messageText;
@@ -86,6 +87,7 @@ public class Jobdetail extends Activity {
 		jdesc.setText(ext.getString("descript"));
 		jprice.setText("Price: "+String.valueOf(ext.getLong("price")));
 		jview.setText("View: "+String.valueOf(ext.getInt("view")));
+		emp_id=String.valueOf(ext.getInt("employee_id"));
 		ImageLoading();
 		ImageLoader imageLoader=ImageLoader.getInstance();
 		imageLoader.displayImage(image_url, image);
@@ -290,7 +292,15 @@ public class Jobdetail extends Activity {
 				try {
 					JSONObject c = new JSONObject(result);
 					phone = c.getString("phone");
-					email = c.getString("email");				} 
+					email = c.getString("email");	
+					if(phone.length()!=0)
+						jphone.setText("Phone: "+phone);
+					else{
+						RelativeLayout root= (RelativeLayout)findViewById(R.id.job_det);
+						RelativeLayout child=(RelativeLayout)findViewById(R.id.useraction);
+						root.removeView(child);
+					}
+				} 
 				catch (JSONException e) 
 				{
 					e.printStackTrace();

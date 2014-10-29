@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/job_det"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fae2b4"
@@ -92,11 +93,11 @@
         android:layout_below="@+id/job_im"
         android:layout_marginTop="23dp"
         android:layout_marginBottom="7dp"
-        android:text="Phone number: 0913067637"
         android:textColor="#ffc532" />
     </RelativeLayout>
     
     <RelativeLayout 
+        android:id="@+id/useraction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
