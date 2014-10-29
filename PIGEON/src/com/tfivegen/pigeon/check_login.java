@@ -7,6 +7,8 @@ public class check_login {
 	static String email = null;
 	static String phone = null;
 	static String error_status = null;
+	static Double latitude=null;
+	static Double longitude=null;
 	public static void logout()
 	{
 		 id = null;
@@ -15,5 +17,7 @@ public class check_login {
 		 email = null;
 		 phone = null;
 		 error_status = null;
+		 longitude=null;
+		 latitude=null;
 	}
 }

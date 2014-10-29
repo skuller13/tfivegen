@@ -25,7 +25,7 @@ public class MyLocation extends Activity implements android.location.LocationLis
 	public static Location l;
 	private GoogleMap googleMap;
 	protected String latitude,longitude; 
-	public static int MIN_TIME=1000*60*1,MIN_DISTANCE=10,MAP_ZOOM=13;
+	public static int MIN_TIME=1000*60*1,MIN_DISTANCE=10,MAP_ZOOM=5;
 	public static int mode=0;
 	public static LatLng MyPos;
 	public static double latitude_pos,longitude_pos;

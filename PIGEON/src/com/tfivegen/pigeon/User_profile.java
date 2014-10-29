@@ -61,13 +61,11 @@ public class User_profile extends Activity {
 	
 	public void sell(View view)
 	{
-		Toast.makeText(getApplicationContext(),"sell clicked", Toast.LENGTH_LONG).show();	
 		Intent Post_page = new Intent(User_profile.this, PostActivity.class);
         startActivity(Post_page);
 	}
 	public void mypost(View view)
 	{
-		Toast.makeText(getApplicationContext(),"mypost clicked", Toast.LENGTH_LONG).show();	
 		progress = new ProgressDialog(this);
 		read_post_thread task = new read_post_thread();
 		task.execute();
@@ -124,7 +122,7 @@ public class User_profile extends Activity {
 	        	    extras.putLong("price", apps.get(position).getPrice());
 	        	    extras.putInt("view", apps.get(position).getView());
 	        	    extras.putDouble("latitude", apps.get(position).getLatitude());
-	        	    extras.putDouble("longtitude",apps.get(position).getLongitude());
+	        	    extras.putDouble("longitude",apps.get(position).getLongitude());
 	        	    in.putExtras(extras);
 	        	    startActivity(in); //เปิดหน้าใหม่*/
 	        	  }
