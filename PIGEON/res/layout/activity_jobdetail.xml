@@ -62,6 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/jdeschead"
         android:layout_below="@+id/jprice"
+        android:onClick="locate"
         android:background="#fe4e5c"
         android:textColor="#ffc532"
         android:text="Locate" />

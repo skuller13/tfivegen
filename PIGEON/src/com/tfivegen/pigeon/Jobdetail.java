@@ -193,6 +193,10 @@ public class Jobdetail extends Activity {
 	      screenDialog.dismiss();
 	     }};
 	     
+	     public void locate(View view){
+	    	 
+	     }
+	     
 	/************************* Phone Class ****************/
 	private class MyPhoneListener extends PhoneStateListener {
 		 
@@ -238,15 +242,6 @@ public class Jobdetail extends Activity {
 			}
 			
 		}
-	}
-	public void mbox(String message)
-	{
-		  	AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);                      
-		    dlgAlert.setMessage(message);
-		    dlgAlert.setTitle("Message");              
-		    dlgAlert.setPositiveButton("OK", null);
-		    dlgAlert.setCancelable(true);
-		    dlgAlert.create().show();		    
 	}
 /****************************************************************************************************************/
 	
