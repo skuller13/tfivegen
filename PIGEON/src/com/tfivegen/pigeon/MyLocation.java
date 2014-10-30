@@ -3,6 +3,7 @@ package com.tfivegen.pigeon;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -13,9 +14,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.util.Log;
 
-import android.widget.Toast;
 import android.app.Activity;
 import android.app.AlertDialog;
 
@@ -25,7 +24,7 @@ public class MyLocation extends Activity implements android.location.LocationLis
 	public static Location l;
 	private GoogleMap googleMap;
 	protected String latitude,longitude; 
-	public static int MIN_TIME=1000*60*1,MIN_DISTANCE=10,MAP_ZOOM=5;
+	public static int MIN_TIME=1000*60*1,MIN_DISTANCE=10,MAP_ZOOM=13;
 	public static int mode=0;
 	public static LatLng MyPos;
 	public static double latitude_pos,longitude_pos;
@@ -46,7 +45,11 @@ public class MyLocation extends Activity implements android.location.LocationLis
   	  			if (googleMap == null) 
   	  				googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap(); //เช็คว่ามีแผนที่อยู่แล้วหรือไม่ ถ้าไม่ ก็จะรับแผนที่เข้ามาใส่ใน R.id.map
   	  			googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL); //ตั้งค่าแผนที่ให้มีแค่ ถนน กับอาคาร (ปกติจะเห็นภูมิปรเทศด้วย)
-  	  			googleMap.addMarker(new MarkerOptions().position(MyPos).title("You are here")); //เพิ่มจุดบนแผนที่
+  	  			googleMap.addMarker(new MarkerOptions()
+  	  			.position(MyPos)
+  	  			.title("You are here")
+  	  			.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))); 
+  	  			//เพิ่มจุดบนแผนที่
          
   	  			CameraPosition cameraPosition = new CameraPosition.Builder()
   	  				.target(MyPos)

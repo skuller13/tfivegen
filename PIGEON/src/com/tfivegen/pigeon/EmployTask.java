@@ -19,7 +19,6 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -44,8 +43,7 @@ public class EmployTask extends Activity {
 		// login check
 		SharedPreferences sp = getSharedPreferences("your_prefs", Activity.MODE_PRIVATE); // ค่าความจำถาวร เช็ค คล้าย cookies
 				if(check_login.id != null)
-				{
-					Toast.makeText(getApplicationContext(),"Auto Login success!", Toast.LENGTH_LONG).show();	
+				{	
 					Intent Post_page = new Intent(EmployTask.this, User_profile.class);
 		            startActivity(Post_page);
 				}
@@ -189,9 +187,7 @@ public class EmployTask extends Activity {
 						{
 							mbox(ex.toString());
 						}
-					
 						
-						Toast.makeText(getApplicationContext(),"Login success!", Toast.LENGTH_LONG).show();	
 						Intent Post_page = new Intent(EmployTask.this, User_profile.class);
 			            startActivity(Post_page);
 			            finish();
@@ -208,9 +204,5 @@ public class EmployTask extends Activity {
 					mbox( e.toString() + "\n" + result);
 				}
 		    }
-			private SharedPreferences getPreferences(int modePrivate) {
-				// TODO Auto-generated method stub
-				return null;
-			}
 		}
 }
