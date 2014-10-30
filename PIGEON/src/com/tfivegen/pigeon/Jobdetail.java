@@ -91,6 +91,7 @@ public class Jobdetail extends Activity {
 		emp_id=String.valueOf(ext.getInt("employee_id"));
 		latitude=ext.getDouble("latitude");
 		longitude=ext.getDouble("longitude");
+		Toast.makeText(getApplicationContext(), String.valueOf(latitude)+":"+String.valueOf(longitude), Toast.LENGTH_SHORT).show();
 		ImageLoading();
 		ImageLoader imageLoader=ImageLoader.getInstance();
 		imageLoader.displayImage(image_url, image);

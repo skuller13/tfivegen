@@ -1,5 +1,7 @@
 package com.tfivegen.pigeon;
 
+import java.util.List;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -8,17 +10,22 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.tfivegen.pigeon.listviewadaper.Application;
+import com.tfivegen.pigeon.listviewadaper.FetchDataListener;
+import com.tfivegen.pigeon.listviewadaper.FetchDataTask;
 
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Toast;
 import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 
-public class MyLocation extends Activity implements android.location.LocationListener {
+public class MyLocation extends Activity implements android.location.LocationListener,FetchDataListener {
 	public static LocationManager lm;
 	public static String provider;
 	public static Location l;
@@ -28,6 +35,7 @@ public class MyLocation extends Activity implements android.location.LocationLis
 	public static int mode=0;
 	public static LatLng MyPos;
 	public static double latitude_pos,longitude_pos;
+	private ProgressDialog dialog;
 	
    @Override
    protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +45,14 @@ public class MyLocation extends Activity implements android.location.LocationLis
       retrievedata(extras);
       try {
     	  		l=getLocation(); //เข้าฟังก์ชัน getLocation เพื่อรับตำแหน่งปัจจุบัน
-    	  		if(mode!=2)
+    	  		if(mode!=2){
     	  			MyPos=new LatLng(l.getLatitude(),l.getLongitude()); //MyPos เอาไว้เก็บค่า 2 ค่านั่นคือ ละติจูด และ ลองจิจูด นั่นเอง...!
-    	  		else
+    	  			initView();
+    	  		}
+    	  		else{
     	  			MyPos=new LatLng(latitude_pos,longitude_pos);
+    	  			Toast.makeText(getApplicationContext(), String.valueOf(latitude_pos)+":"+String.valueOf(longitude_pos), Toast.LENGTH_SHORT).show();
+    	  		}
     	  			
   	  			if (googleMap == null) 
   	  				googleMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap(); //เช็คว่ามีแผนที่อยู่แล้วหรือไม่ ถ้าไม่ ก็จะรับแผนที่เข้ามาใส่ใน R.id.map
@@ -117,21 +129,46 @@ public class MyLocation extends Activity implements android.location.LocationLis
 	    return null;
 	}
 
-@Override
-public void onStatusChanged(String provider, int status, Bundle extras) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
 
-@Override
-public void onProviderEnabled(String provider) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+	}
 
-@Override
-public void onProviderDisabled(String provider) {
-	// TODO Auto-generated method stub
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
 	
-}
+	}
+
+	private void initView() {
+    // show progress dialog
+		dialog = ProgressDialog.show(this, "", "Loading...");
+		String url = "http://pigeon.meximas.com/pigeon/read1.php";
+		FetchDataTask task = new FetchDataTask(this);
+		task.execute(url);
+	}
+
+	@Override
+	public void onFetchComplete(List<Application> data) {
+		if(dialog != null)  dialog.dismiss();
+		for(int i=0;i<data.size();i++)
+		{
+			MyPos=new LatLng(data.get(i).getLatitude(),data.get(i).getLongitude());
+			googleMap.addMarker(new MarkerOptions()
+				.position(MyPos)
+				.title(data.get(i).getTitle())
+				.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+		}
+	}
+
+	@Override
+	public void onFetchFailure(String msg) {
+		// TODO Auto-generated method stub 
+	}
 }

@@ -52,7 +52,7 @@ public class DataList extends Activity implements FetchDataListener {
 	private void initView() {
         // show progress dialog
         dialog = ProgressDialog.show(this, "", "Loading...");
-        String url = "http://pigeon.meximas.com/pigeon/read.php";
+        String url = "http://pigeon.meximas.com/pigeon/read1.php";
         FetchDataTask task = new FetchDataTask(this);
         task.execute(url);
     }
@@ -136,7 +136,7 @@ public class DataList extends Activity implements FetchDataListener {
       extras.putInt("view", databundle.getView());
       extras.putInt("employee_id", databundle.getEmpid());
       extras.putDouble("latitude", databundle.getLatitude());
-      extras.putDouble("longtitude",databundle.getLongitude());
+      extras.putDouble("longitude",databundle.getLongitude());
       in.putExtras(extras);
       startActivity(in); //เปิดหน้าใหม่
      }};
