@@ -101,9 +101,10 @@ int drawable menu_rows2 0x7f020026
 int drawable pigeon_drw 0x7f020027
 int drawable powered_by_google_dark 0x7f020028
 int drawable powered_by_google_light 0x7f020029
-int drawable tab_find 0x7f02002a
-int drawable tab_list 0x7f02002b
-int drawable tabs 0x7f02002c
+int drawable start_logo 0x7f02002a
+int drawable tab_find 0x7f02002b
+int drawable tab_list 0x7f02002c
+int drawable tabs 0x7f02002d
 int id FrameLayout1 0x7f07002c
 int id RelativeLayout1 0x7f07001e
 int id action_settings 0x7f070047

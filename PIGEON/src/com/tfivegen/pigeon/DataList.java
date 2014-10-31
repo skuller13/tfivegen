@@ -35,9 +35,6 @@ public class DataList extends Activity implements FetchDataListener {
 	int loader=R.drawable.loader;
 	Application databundle;
 	
-    public ImageView image;
-    public String image_url = "http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +46,7 @@ public class DataList extends Activity implements FetchDataListener {
 	private void initView() {
         // show progress dialog
         dialog = ProgressDialog.show(this, "", "Loading...");
-        String url = "http://pigeon.meximas.com/pigeon/read1.php";
+        String url = "http://pigeon.meximas.com/pigeon/read2.php";
         FetchDataTask task = new FetchDataTask(this);
         task.execute(url);
     }

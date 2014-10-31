@@ -26,7 +26,7 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button1"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="#79c1a9"
         android:drawableRight="@drawable/annouce"
         android:onClick="Employee"
@@ -39,9 +39,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/pigeon_drw" />
+        android:src="@drawable/start_logo" />
 
     <TextView
         android:id="@+id/textView1"
@@ -49,7 +49,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
         android:text="@string/advert"
         android:textColor="#dca347" />
 

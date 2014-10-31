@@ -17,7 +17,6 @@ import com.tfivegen.pigeon.listviewadaper.FetchDataTask;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.widget.Toast;
 import android.content.DialogInterface;
 import android.content.Intent;
 
@@ -51,7 +50,6 @@ public class MyLocation extends Activity implements android.location.LocationLis
     	  		}
     	  		else{
     	  			MyPos=new LatLng(latitude_pos,longitude_pos);
-    	  			Toast.makeText(getApplicationContext(), String.valueOf(latitude_pos)+":"+String.valueOf(longitude_pos), Toast.LENGTH_SHORT).show();
     	  		}
     	  			
   	  			if (googleMap == null) 
@@ -149,7 +147,7 @@ public class MyLocation extends Activity implements android.location.LocationLis
 	private void initView() {
     // show progress dialog
 		dialog = ProgressDialog.show(this, "", "Loading...");
-		String url = "http://pigeon.meximas.com/pigeon/read1.php";
+		String url = "http://pigeon.meximas.com/pigeon/read2.php";
 		FetchDataTask task = new FetchDataTask(this);
 		task.execute(url);
 	}

@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 public class FetchDataTask extends AsyncTask<String, Void, String>{
     private final FetchDataListener listener;
@@ -59,9 +60,10 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
         
         return null;
     }
-    
     @Override
     protected void onPostExecute(String sJson) {
+    	
+    	System.out.println(sJson);
         if(sJson == null) {
             if(listener != null) listener.onFetchFailure(msg);
             return;
@@ -72,6 +74,7 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
             JSONArray aJson = new JSONArray(sJson);
             // create apps list
             List<Application> apps = new ArrayList<Application>();
+            
             
             for(int i=0; i<aJson.length(); i++) {
                 JSONObject json = aJson.getJSONObject(i);
@@ -86,13 +89,16 @@ public class FetchDataTask extends AsyncTask<String, Void, String>{
                 apps.add(app);
             }
             
+            
             //notify the activity that fetch data has been complete
             if(listener != null) listener.onFetchComplete(apps);
+            
         } catch (JSONException e) {
             msg = "Invalid response";
             if(listener != null) listener.onFetchFailure(msg);
             return;
-        }        
+        }     
+       
     }
     
     /**

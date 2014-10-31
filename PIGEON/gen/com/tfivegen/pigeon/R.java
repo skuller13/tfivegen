@@ -416,9 +416,10 @@ containing a value of this type.
         public static final int pigeon_drw=0x7f020027;
         public static final int powered_by_google_dark=0x7f020028;
         public static final int powered_by_google_light=0x7f020029;
-        public static final int tab_find=0x7f02002a;
-        public static final int tab_list=0x7f02002b;
-        public static final int tabs=0x7f02002c;
+        public static final int start_logo=0x7f02002a;
+        public static final int tab_find=0x7f02002b;
+        public static final int tab_list=0x7f02002c;
+        public static final int tabs=0x7f02002d;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f07002c;

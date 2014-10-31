@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,7 +18,6 @@ public class Starter extends Activity {
 	}
 	
 	public void Findjob(View view){
-		//mbox(check_login.con2json("ติณห์"));
 		Intent in=new Intent(this,JobTask.class); //ตั้งลิ้งหน้าใหม่
 		startActivity(in); //เปิดหน้าใหม่
 	}
