@@ -19,6 +19,7 @@ public class Starter extends Activity {
 	}
 	
 	public void Findjob(View view){
+		//mbox(check_login.con2json("ติณห์"));
 		Intent in=new Intent(this,JobTask.class); //ตั้งลิ้งหน้าใหม่
 		startActivity(in); //เปิดหน้าใหม่
 	}

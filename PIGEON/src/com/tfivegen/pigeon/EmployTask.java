@@ -132,7 +132,7 @@ public class EmployTask extends Activity {
 					List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 					pairs.add(new BasicNameValuePair("username", username.getText().toString()));
 					pairs.add(new BasicNameValuePair("password", password.getText().toString()));
-					post.setEntity(new UrlEncodedFormEntity(pairs));
+					post.setEntity(new UrlEncodedFormEntity(pairs,"UTF-8"));
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());
 				} 

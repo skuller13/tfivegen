@@ -124,7 +124,7 @@ public class RegisterActivity extends Activity {
 					pairs.add(new BasicNameValuePair("password", password_1.getText().toString()));
 					pairs.add(new BasicNameValuePair("email", email.getText().toString()));
 					pairs.add(new BasicNameValuePair("phone", phone.getText().toString()));
-					post.setEntity(new UrlEncodedFormEntity(pairs));
+					post.setEntity(new UrlEncodedFormEntity(pairs,"UTF-8"));
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());
 				} 

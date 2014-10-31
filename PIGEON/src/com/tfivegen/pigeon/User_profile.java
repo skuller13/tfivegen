@@ -40,10 +40,6 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-
 public class User_profile extends Activity {
 	ProgressDialog progress;
 	List<Application> apps;
@@ -222,7 +218,7 @@ public class User_profile extends Activity {
 					List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 					pairs.add(new BasicNameValuePair("employer_id", check_login.id));
 					
-					post.setEntity(new UrlEncodedFormEntity(pairs));
+					post.setEntity(new UrlEncodedFormEntity(pairs,"UTF-8"));
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());
 					

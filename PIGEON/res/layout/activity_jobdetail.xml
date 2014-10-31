@@ -45,16 +45,6 @@
         android:textColor="#ffc532"
         android:text="Job Description" />
 
-    <ImageView
-        android:id="@+id/job_im"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/jdesc"
-        android:layout_below="@+id/jdesc"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:src="@drawable/loader" />
-
     <Button
         android:id="@+id/jloc"
         style="?android:attr/buttonStyleSmall"
@@ -90,10 +80,10 @@
         android:id="@+id/jphone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/job_im"
-        android:layout_below="@+id/job_im"
+        android:layout_alignLeft="@+id/jdesc"
+        android:layout_below="@+id/jdesc"
         android:layout_marginTop="23dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="5dp"
         android:textColor="#ffc532" />
     </RelativeLayout>
     

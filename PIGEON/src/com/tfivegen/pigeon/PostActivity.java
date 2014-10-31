@@ -1,13 +1,5 @@
 package com.tfivegen.pigeon;
 
-import android.app.Activity;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +13,15 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
-import com.tfivegen.pigeon.EmployTask.login_thread;
-
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -128,9 +122,15 @@ public class PostActivity extends Activity implements android.location.LocationL
 			protected Integer doInBackground(Void... params)
 			{	
 				try 
-				{
+				{		
+
+					String test = "tin";
+					JSONObject c = new JSONObject();
+					
 					HttpClient client = new DefaultHttpClient();
 					HttpPost post = new HttpPost("http://pigeon.meximas.com/pigeon/insert_post.php");
+					
+
 					
 					List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 					pairs.add(new BasicNameValuePair("user_id", check_login.id));
@@ -139,11 +139,15 @@ public class PostActivity extends Activity implements android.location.LocationL
 					
 					pairs.add(new BasicNameValuePair("job_name", job_name.getText().toString()));
 					pairs.add(new BasicNameValuePair("price", price.getText().toString()));
+					
 					pairs.add(new BasicNameValuePair("description", description.getText().toString()));
+					
+					
 					pairs.add(new BasicNameValuePair("latitude",String.valueOf(l.getLatitude())));
 					pairs.add(new BasicNameValuePair("longitude",String.valueOf(l.getLongitude())));
 
-					post.setEntity(new UrlEncodedFormEntity(pairs));
+					post.setEntity(new UrlEncodedFormEntity(pairs,"UTF-8"));
+					
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());
 					

@@ -31,23 +31,17 @@ import android.telephony.TelephonyManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.tfivegen.pigeon.listviewadaper.Application;
 
 public class Jobdetail extends Activity {
 	ProgressDialog progress;
 	TextView jname,jdesc,jprice,jview,jphone;
-	String image_url="http://pigeon.meximas.com/pigeon/job_image/tew_01.jpg";
 	List<Application> data;
 	Double latitude=null,longitude=null;
-	ImageView image;
 	String phone = null,email = null,emp_id=null;
 	Dialog screenDialog;
 	static final int ID_SCREENDIALOG = 1;
@@ -80,7 +74,6 @@ public class Jobdetail extends Activity {
 		jprice=(TextView)findViewById(R.id.jprice);
 		jview=(TextView)findViewById(R.id.jview);
 		jphone=(TextView)findViewById(R.id.jphone);
-		image=(ImageView)findViewById(R.id.job_im);
 	}
 	
 	public void setdata(Bundle ext){
@@ -91,26 +84,7 @@ public class Jobdetail extends Activity {
 		emp_id=String.valueOf(ext.getInt("employee_id"));
 		latitude=ext.getDouble("latitude");
 		longitude=ext.getDouble("longitude");
-		Toast.makeText(getApplicationContext(), String.valueOf(latitude)+":"+String.valueOf(longitude), Toast.LENGTH_SHORT).show();
-		ImageLoading();
-		ImageLoader imageLoader=ImageLoader.getInstance();
-		imageLoader.displayImage(image_url, image);
 	}
-	
-	public void ImageLoading(){
-   	 DisplayImageOptions.Builder optionBuilder = new DisplayImageOptions.Builder();
-		optionBuilder.showImageForEmptyUri(R.drawable.ic_launcher);
-      	optionBuilder.showImageOnFail(R.drawable.ic_launcher);
-	    optionBuilder.cacheInMemory(true);
-	    optionBuilder.cacheOnDisk(true);
-		DisplayImageOptions options = optionBuilder.build();
-		ImageLoaderConfiguration.Builder loaderBuilder = 
-				new ImageLoaderConfiguration.Builder(getApplicationContext());
-		loaderBuilder.defaultDisplayImageOptions(options);
-		loaderBuilder.diskCacheExtraOptions(800, 800, null);
-		ImageLoaderConfiguration config = loaderBuilder.build();
-		ImageLoader.getInstance().init(config);
-    }
 	
 	public void phonecall(View view){
 		try {
@@ -271,7 +245,7 @@ public class Jobdetail extends Activity {
 					
 					List<NameValuePair> pairs = new ArrayList<NameValuePair>();
 					pairs.add(new BasicNameValuePair("member_id",emp_id));
-					post.setEntity(new UrlEncodedFormEntity(pairs));
+					post.setEntity(new UrlEncodedFormEntity(pairs,"UTF-8"));
 					
 					HttpResponse response = client.execute(post);
 					result = EntityUtils.toString(response.getEntity());

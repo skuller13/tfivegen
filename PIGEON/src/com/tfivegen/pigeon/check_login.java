@@ -1,5 +1,9 @@
 package com.tfivegen.pigeon;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class check_login {
 	static String id = null;
 	static String username = null;
@@ -20,4 +24,21 @@ public class check_login {
 		 longitude=null;
 		 latitude=null;
 	}
+	public static String con2json(String str)
+	{		
+		JSONObject jsonObj = new JSONObject();
+		 	try {
+		        
+				jsonObj.put("name", str);
+				} 
+		 	catch (JSONException e) 
+		 	{
+					e.printStackTrace();
+			} 
+		         
+
+		String result = jsonObj.toString();
+		return result;
+	
+}
 }

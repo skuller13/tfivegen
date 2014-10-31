@@ -18,13 +18,6 @@
     android:textSize="20sp"
     android:textStyle="bold|italic" />
 
-<ImageView
-    android:id="@+id/imagexy"
-    android:layout_width="173dp"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:contentDescription="Job image" />
-
 <TextView
     android:id="@+id/description"
     android:layout_width="wrap_content"
